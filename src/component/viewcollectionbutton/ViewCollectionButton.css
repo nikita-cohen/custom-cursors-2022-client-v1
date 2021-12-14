@@ -1,0 +1,31 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-SemiBold'), url(../../font/Inter-SemiBold.ttf) format('truetype');
+    font-weight: 600;
+    font-style: normal
+}
+
+.view-collection-btn-container{
+    height: 40px;
+    width: 246px;
+    border-radius: 6px;
+    background: #006EDD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.view-collection-btn-container:hover{
+    background: #004D9B;
+}
+
+.view-collection-txt{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 19px;
+    text-align: center;
+    color: white;
+}

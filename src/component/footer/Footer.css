@@ -1,0 +1,72 @@
+@font-face {
+    font-family: Montserrat Alternates;
+    src: local('MontserratAlternates-Medium'), url(../../font/MontserratAlternates-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Regular'), url(../../font/Inter-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal
+}
+
+.footer-container {
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-items-container{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.vector-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+
+.logo-txt-container{
+    height: 34px;
+    width: 69px;
+    left: 32px;
+    margin-left: 15px;
+}
+
+.logo-txt{
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    text-align: left;
+    color: white;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+}
+
+.txt-style{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+    color: white;
+    cursor: pointer;
+}
+
+.mt{
+    margin-top: 8px;
+}

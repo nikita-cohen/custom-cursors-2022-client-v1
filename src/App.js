@@ -1,10 +1,9 @@
 import './App.css';
-import {ActionBar} from "./component/actionbar/ActionBar";
 
 function App() {
   return (
       <div>
-          <ActionBar/>
+          hi
       </div>
   );
 }

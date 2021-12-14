@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Bold'), url(../../font/Inter-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+.see-all-container{
+    height: 44px;
+    width: 265px;
+    border-radius: 10px;
+    border: 2px solid #197DE1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.see-all-container:hover{
+    border: 4px solid #197DE1
+}
+
+.see-all-txt{
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color:  #197DE1;
+}

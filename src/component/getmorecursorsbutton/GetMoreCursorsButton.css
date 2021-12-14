@@ -1,0 +1,32 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Bold'), url(../../font/Inter-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+.get-button-container{
+    height: 48px;
+    width: 426px;
+    border-radius: 10px;
+    background: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.get-button-container:hover{
+    background: linear-gradient(269.42deg, #014285 0%, #004585 100%);
+}
+
+.get-txt-style{
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color: white;
+}
