@@ -15,7 +15,6 @@
 .action-bar{
     height: 52px;
     width: 100%;
-    position: absolute;
     background: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
     display: flex;
     align-content: center;
