@@ -1,0 +1,38 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Medium'), url(../../font/Inter-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal
+}
+
+.add-button{
+    height: 28px;
+    width: 186px;
+    border-radius: 6px;
+    background-color:#9F25FF;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.i-class{
+    margin-left: 5px;
+}
+
+.i{
+    text-align: center;
+    color: white;
+}
+
+.txt-button{
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+    color: white;
+
+}
