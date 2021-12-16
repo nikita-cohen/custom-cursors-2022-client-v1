@@ -1,0 +1,51 @@
+@font-face {
+    font-family: Montserrat;
+    src: local('Montserrat-Bold'), url(../../font/Montserrat-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+.view-container{
+    width: 100%;
+    background: #F6FBFF;
+}
+
+.header-txt-last-used {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+    text-align: center;
+    background-image: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 40px;
+}
+
+.txt-container-last{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+
+.card-container-last-used{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.btn-container-last-used{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.footer-last-used{
+    margin-top: 80px;
+}
+
+.collection-card-last-used{
+    margin-top: 20px;
+}
