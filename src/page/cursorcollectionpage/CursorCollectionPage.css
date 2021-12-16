@@ -1,0 +1,77 @@
+@font-face {
+    font-family: Montserrat;
+    src: local('Montserrat-Bold'), url(../../font/Montserrat-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Regular'), url(../../font/Inter-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal
+}
+
+.collection-cards-main-container{
+    width: 100%;
+    background: #F6FBFF;
+}
+
+.footer-sizing{
+    margin-top: 80px;
+}
+
+.header-txt-cursor-collection{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+    text-align: center;
+    background-image: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 40px;
+}
+
+.collections-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mt-to-collection-card{
+    margin-top: 20px;
+}
+
+.btn-margin{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.txt-collection-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.description-txt-cursor-collection-page{
+    height: 38px;
+    left: 205px;
+    top: 144px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.description-txt-style-collection-page{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: center;
+
+}

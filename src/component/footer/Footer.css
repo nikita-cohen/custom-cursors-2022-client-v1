@@ -13,19 +13,18 @@
 }
 
 .footer-container {
-    height: 100px;
     width: 100%;
     background: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
+}
+
+.menu-style-footer{
     display: flex;
+    height: 100px;
     justify-content: space-around;
     align-items: center;
 }
 
-.footer-items-container{
-    width: 70%;
-    display: flex;
-    justify-content: space-around;
-}
+
 
 .vector-container{
     display: flex;

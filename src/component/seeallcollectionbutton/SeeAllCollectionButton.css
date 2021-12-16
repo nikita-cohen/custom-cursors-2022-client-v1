@@ -14,10 +14,12 @@
     justify-content: center;
     align-items: center;
     cursor: default;
+    box-sizing: border-box;
 }
 
 .see-all-container:hover{
-    border: 4px solid #197DE1
+    border: 4px solid #197DE1;
+    box-sizing: border-box;
 }
 
 .see-all-txt{
