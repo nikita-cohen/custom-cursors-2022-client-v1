@@ -1,0 +1,33 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Bold'), url(../../font/Inter-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+.install-btn-container {
+    height: 48px;
+    width: 396px;
+    border-radius: 10px;
+    background: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
+    cursor: pointer;
+}
+
+.inner-txt-install-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.txt-container-install {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color: white;
+    margin-left: 15px;
+}

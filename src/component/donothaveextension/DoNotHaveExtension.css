@@ -1,0 +1,106 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Bold'), url(../../font/Inter-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Regular'), url(../../font/Inter-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Inter;
+    src: local('Inter-SemiBold'), url(../../font/Inter-SemiBold.ttf) format('truetype');
+    font-weight: 600;
+    font-style: normal
+}
+
+.main-container-not-extension {
+    height: 349px;
+    width: 870px;
+    left: 205px;
+    top: 103px;
+    border-radius: 20px;
+    background: #FFFFFF;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 8px 0 #00000026;
+}
+
+.first-row-install-container {
+    width: 100%;
+}
+
+.image-right-corner-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-txt-install-page {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    color: black;
+}
+
+.txt-container-install-txt {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-top: 80px;
+}
+
+.description-txt-install-container {
+    height: 65px;
+    width: 530px;
+    left: 374px;
+    top: 229px;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+    text-align: center;
+}
+
+.image-left-corner-container {
+    display: flex;
+    margin-top: 30px;
+}
+
+.btn-and-txt-container-install {
+    display: flex;
+    flex-direction: column;
+    margin-left: 36px;
+}
+
+.how-to-use-txt-install {
+    display: flex;
+
+    justify-content: center;
+    margin-top: 53px;
+    cursor: pointer;
+}
+
+.txt-install-style {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 19px;
+    text-align: center;
+    background: linear-gradient(269.42deg, #014285 0%, #004585 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 2px;
+}
+
+.how-to-use-icon-for-install {
+    margin-left: 8px;
+}
