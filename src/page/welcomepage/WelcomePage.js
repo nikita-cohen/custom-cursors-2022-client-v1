@@ -76,36 +76,16 @@ export function WelcomePage(props) {
                         </div>
                     </div>
                     <div className={"card-container-second"}>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
-                        <div className={"card-sec"}>
-                            <CursorCard/>
-                        </div>
+                        <CursorCard/>
+                        <CursorCard/>
+                        <CursorCard/>
+                        <CursorCard/>
+                        <CursorCard/>
+                        <CursorCard/>
+                        <CursorCard/>
+                        <CursorCard/>
+                        <CursorCard/>
+                        <CursorCard/>
                     </div>
                     <div className={"more-cursors-btn-container"}>
                         <GetMoreCursorsButton/>

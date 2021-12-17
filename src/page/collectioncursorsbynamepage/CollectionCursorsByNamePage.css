@@ -1,0 +1,64 @@
+@font-face {
+    font-family: Montserrat;
+    src: local('Montserrat-Bold'), url(../../font/Montserrat-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+.view-container {
+    width: 100%;
+    background: #F6FBFF;
+}
+
+.card-container-by-name {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(200px, 1fr));
+    grid-gap: 30px;
+    margin-top: 40px;
+}
+
+
+@media screen and (max-width: 1177px) {
+    .card-container-by-name {
+        grid-gap: 75px;
+    }
+}
+
+@media screen and (max-width: 1081px) {
+    .card-container-by-name {
+        grid-gap: 185px;
+    }
+}
+
+
+
+.main-header-txt-container-by-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+
+.txt-by-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 41px;
+    text-align: center;
+    background-image: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 40px;
+}
+
+.btn-to-all-by-name-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.footer-by-name-container{
+    margin-top: 80px;
+}

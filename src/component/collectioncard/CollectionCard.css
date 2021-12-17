@@ -47,4 +47,14 @@
 
 .view-btn-collection-card{
     margin-top: 30px;
+    background: #F6FBFF;
+    height: 67px;
+    width: 276px;
+    left: 1px;
+    top: 179px;
+    border-radius: 0px 0px 9px 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

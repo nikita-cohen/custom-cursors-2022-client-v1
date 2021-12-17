@@ -1,9 +1,9 @@
 import {ActionBar} from "../../component/actionbar/ActionBar";
 import "./CursorCollectionPage.css";
-import InnerLayout from "../../component/innerlayout/InnerLayout";
 import {CollectionCard} from "../../component/collectioncard/CollectionCard";
 import {GetMoreCursorsButton} from "../../component/getmorecursorsbutton/GetMoreCursorsButton";
 import {Footer} from "../../component/footer/Footer";
+import InnerLayout from "../../component/innerlayout/InnerLayout";
 
 export function CursorCollectionPage(props) {
     return(

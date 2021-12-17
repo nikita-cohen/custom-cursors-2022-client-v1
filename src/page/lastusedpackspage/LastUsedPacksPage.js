@@ -1,9 +1,9 @@
 import "./LastUsedPacksPage.css";
 import {ActionBar} from "../../component/actionbar/ActionBar";
-import InnerLayout from "../../component/innerlayout/InnerLayout";
 import {CollectionCard} from "../../component/collectioncard/CollectionCard";
 import {ToAllCollectionButton} from "../../component/toallcollectionsbutton/ToAllCollectionButton";
 import {Footer} from "../../component/footer/Footer";
+import InnerLayout from "../../component/innerlayout/InnerLayout";
 
 export function LastUsedPacksPage(props) {
     return(

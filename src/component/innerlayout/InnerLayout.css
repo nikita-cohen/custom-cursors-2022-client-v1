@@ -3,8 +3,17 @@
     margin: 0 auto;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1176px) {
     .inner_layout {
-        max-width: 800px;
+        max-width: 1040px;
     }
 }
+
+@media screen and (max-width: 1080px) {
+    .inner_layout {
+        max-width: 980px;
+    }
+}
+
+
+

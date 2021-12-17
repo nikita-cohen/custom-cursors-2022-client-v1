@@ -31,9 +31,24 @@
 }
 
 .card-container-last-used{
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(260px, 1fr));
+    grid-gap: 6px;
     justify-content: space-between;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 1177px) {
+    .card-container-last-used {
+        grid-gap: 101px;
+    }
+}
+
+@media screen and (max-width: 1081px) {
+    .card-container-last-used {
+        grid-gap: 70px;
+    }
 }
 
 .btn-container-last-used{
