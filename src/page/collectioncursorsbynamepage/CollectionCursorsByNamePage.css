@@ -14,20 +14,20 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit , minmax(200px, 1fr));
-    grid-gap: 30px;
+    grid-gap: 27px;
     margin-top: 40px;
 }
 
 
 @media screen and (max-width: 1177px) {
     .card-container-by-name {
-        grid-gap: 75px;
+        grid-gap: 73px;
     }
 }
 
 @media screen and (max-width: 1081px) {
     .card-container-by-name {
-        grid-gap: 185px;
+        grid-gap: 182px;
     }
 }
 

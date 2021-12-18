@@ -38,7 +38,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit , minmax(260px, 1fr));
-    grid-gap: 4px;
+    grid-gap: 8px;
     justify-content: space-between;
     margin-top: 20px;
 }
@@ -51,7 +51,7 @@
 
 @media screen and (max-width: 1081px) {
     .collections-card-container {
-        grid-gap: 70px;
+        grid-gap: 71px;
     }
 }
 
