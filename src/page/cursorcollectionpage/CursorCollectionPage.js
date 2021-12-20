@@ -8,7 +8,7 @@ import InnerLayout from "../../component/innerlayout/InnerLayout";
 export function CursorCollectionPage(props) {
     return(
         <div className={"main-cursor-collection-container"}>
-            <ActionBar/>
+            <ActionBar type={"IMAGE"}/>
             <div className={"collection-cards-main-container"}>
                 <InnerLayout>
                     <div className={"txt-collection-page-container"}>

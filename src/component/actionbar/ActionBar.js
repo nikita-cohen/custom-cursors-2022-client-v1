@@ -1,7 +1,29 @@
 import "./ActionBar.css";
 import InnerLayout from "../innerlayout/InnerLayout";
+import {CustomSearchInput} from "../customsearchinput/CustomSearchInput";
+import {useState} from "react";
 
 export function ActionBar(props) {
+
+    const [inputType, setInputType] = useState(props.type);
+
+    const changeInputType = () => {
+      if (inputType === "IMAGE") {
+          return <div onClick={() =>{setInputType("SEARCH")}}  className="search-container">
+                   <div  className="search-txt">
+                       Search
+                   </div>
+                   <div  className="img-search-container">
+                   <img src="Search.png" alt="search"/>
+                   </div>
+                 </div>
+      } else if (inputType === "SEARCH") {
+          return <div onBlur={() => {setInputType("IMAGE")}} className={"search-container"}>
+              <CustomSearchInput/>
+          </div>
+      }
+    }
+
     return(
         <div className="action-bar">
             <InnerLayout>
@@ -14,14 +36,7 @@ export function ActionBar(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="search-container">
-                        <div className="search-txt">
-                            Search
-                        </div>
-                        <div className="img-search-container">
-                            <img src="Search.png" alt="search"/>
-                        </div>
-                    </div>
+                    {changeInputType()}
                     <div className="how-to-use-container">
                         <div className="how-to-use-txt">
                             How to use

@@ -1,0 +1,14 @@
+.input-search {
+    height: 38px;
+    width: 540px;
+    left: 370px;
+    top: 7px;
+    border-radius: 10px;
+    background-size: 28px;
+    padding-left: 55px;
+    border: 0 none;
+    box-shadow: none;
+    outline: none;
+    background: white url("../../assets/Search-asset.png") no-repeat 15px 7px;
+}
+

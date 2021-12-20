@@ -10,7 +10,7 @@ import {Footer} from "../../component/footer/Footer";
 export function WelcomePage(props) {
     return (
         <div className="main-welcome-page-container">
-            <ActionBar/>
+            <ActionBar type={"IMAGE"} />
             <InnerLayout>
                 <div className="first-element-container">
                     <div className="txt-header-container">

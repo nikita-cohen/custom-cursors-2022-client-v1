@@ -1,0 +1,80 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Regular'), url(../../font/Inter-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: local('Montserrat-Bold'), url(../../font/Montserrat-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+.inner-style-search-page{
+    width: 100%;
+    background: #F6FBFF;
+}
+
+.txt-container-search-result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header-search-container {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+    background-image: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 40px;
+}
+
+.number-of-result {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: center;
+    color: black;
+    margin-top: 20px;
+}
+
+.card-result-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(260px, 1fr));
+    grid-gap: 8px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 1177px) {
+    .card-result-container {
+        grid-gap: 101px;
+    }
+}
+
+@media screen and (max-width: 1081px) {
+    .card-result-container {
+        grid-gap: 71px;
+    }
+}
+
+.btn-result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.footer-result-container {
+    margin-top: 137px;
+}

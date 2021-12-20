@@ -8,7 +8,7 @@ import InnerLayout from "../../component/innerlayout/InnerLayout";
 export function LastUsedPacksPage(props) {
     return(
         <div className={"page-container-last-used"}>
-            <ActionBar/>
+            <ActionBar type={"IMAGE"}/>
             <div className={"view-container"}>
                 <InnerLayout>
                     <div className={"txt-container-last"}>

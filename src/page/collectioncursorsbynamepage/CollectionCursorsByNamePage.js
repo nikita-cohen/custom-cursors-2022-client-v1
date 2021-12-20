@@ -8,7 +8,7 @@ import {Footer} from "../../component/footer/Footer";
 export function CollectionCursorsByNamePage(props) {
     return (
         <div className={"main-collection-cursor-page-container"}>
-            <ActionBar/>
+            <ActionBar type={"IMAGE"}/>
             <div className={"view-container"}>
                 <InnerLayout>
                     <div className={"main-header-txt-container-by-name"}>
