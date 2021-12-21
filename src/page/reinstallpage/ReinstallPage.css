@@ -1,0 +1,44 @@
+.reinstall-page-container {
+    width: 100%;
+    background: #F6FBFF;
+}
+
+.container-inner-reinstall-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sad-emoji-container {
+    margin-top: 40px;
+}
+
+.header-reinstall-container {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    color: black;
+    margin-top: 10px;
+}
+
+.description-txt-reinstall {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 29px;
+    text-align: center;
+    color: black;
+}
+
+.btn-reinstall-container {
+    margin-top: 15px;
+}
+
+.footer-container-reinstall {
+    margin-top: 300px;
+}
