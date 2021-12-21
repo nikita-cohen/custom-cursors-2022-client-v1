@@ -1,0 +1,23 @@
+.text-aria-container-for-pool {
+    height: 100px;
+    width: 426px;
+    left: 427px;
+    top: 431px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid #000000
+}
+
+.txt-aria-width > textarea {
+    width: 422px;
+}
+
+.txt-design-aria {
+    height: 63px;
+    width: 420px;
+    left: 428px;
+    top: 467px;
+    border-radius: 0 0 7px 7px;
+    background: #F6FBFF;
+
+}

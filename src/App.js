@@ -9,6 +9,7 @@ import {TermsOfUsePage} from "./page/termsofusepage/TermsOfUsePage";
 import {PrivacyPolicyPage} from "./page/privacypolicypage/PrivacyPolicyPage";
 import {CookiePolicyPage} from "./page/cookiepolicypage/CookiePolicyPage";
 import {HowToUsePage} from "./page/howtousepage/HowToUsePage";
+import {PoolPage} from "./page/poolpage/PoolPage";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path={"/privacy-policy"} exact component={PrivacyPolicyPage}/>
             <Route path={"/cookie-policy"} exact component={CookiePolicyPage}/>
             <Route path={"/how-to-use"} exact component={HowToUsePage}/>
+            <Route path={"/pool"} exact component={PoolPage}/>
         </div>
     )
 }

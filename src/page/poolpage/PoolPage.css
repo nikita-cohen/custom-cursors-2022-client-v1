@@ -1,0 +1,49 @@
+.pool-page-container {
+    width: 100%;
+    background: #F6FBFF;
+
+}
+
+.image-container-pool {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image-inner-container-pool{
+    margin-top: 40px;
+}
+
+.header-title-container-pool {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 37px;
+    text-align: center;
+    color: black;
+    margin-top: 10px;
+}
+
+.description-container-pool {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    color: black;
+}
+
+.pool-check-bok-container-page {
+    margin-top: 18px;
+}
+
+.margin-check-box {
+    margin-top: 8px;
+}
+
+.footer-pool-page{
+    margin-top: 32px;
+}

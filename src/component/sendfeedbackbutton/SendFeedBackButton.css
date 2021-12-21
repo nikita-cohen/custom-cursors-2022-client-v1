@@ -1,0 +1,42 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Bold'), url(../../font/Inter-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+.inactive-btn-feed-back {
+    height: 48px;
+    width: 426px;
+    border-radius: 10px;
+    background: #ADADAD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.txt-style-feed-back {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.active-btn-feed-back {
+    height: 48px;
+    width: 426px;
+    border-radius: 10px;
+    background: #0BB812;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.active-btn-feed-back:hover {
+    background: #0BB812;
+}

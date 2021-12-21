@@ -1,0 +1,128 @@
+@font-face {
+    font-family: Inter;
+    src: local('Inter-Medium'), url(../../font/Inter-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal
+}
+
+/* Customize the label (the container) */
+.container-aria {
+    display: block;
+
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-aria input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark-aria {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 20px;
+    border: 2px solid #80D9FF;
+    background-color: white;
+}
+
+/* On mouse-over, add a grey background color */
+.container-aria:hover input ~ .checkmark-aria {
+    background-color: white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-aria input:checked ~ .checkmark-aria {
+    background-color: #0057FF;
+
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark-aria:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container-aria input:checked ~ .checkmark-aria:after {
+    display: block;
+
+}
+
+
+.pool-check-box-container-check-aria{
+    height: 36px;
+    width: 426px;
+    left: 129px;
+    top: 76px;
+    border-radius: 8px 8px 0 0;
+    background: #168FFF;
+    border: 1px solid #80D9FF;
+    display: flex;
+}
+
+
+/* Style the checkmark/indicator */
+.container-aria .checkmark-aria:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.pool-check-box-container-aria{
+    height: 36px;
+    width: 426px;
+    left: 129px;
+    top: 76px;
+    border-radius: 8px 8px 0 0 ;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    display: flex;
+}
+
+.icon-container-pool-aria {
+    margin-left: 10px;
+ }
+
+.pool-check-box-container-aria:hover{
+    border: 1px solid #80D9FF
+}
+
+.txt-container-pool-check-box-aria {
+    height: 36px;
+    width: 300px;
+    left: 439px;
+    top: 211px;
+    font-family: 'Inter',sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    color: black;
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.check-box-v-container-aria {
+    margin-top: 3.5px;
+    margin-left: 80px;
+}
