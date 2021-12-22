@@ -18,7 +18,7 @@ export function ActionBar(props) {
                    </div>
                  </div>
       } else if (inputType === "SEARCH") {
-          return <div onBlur={() => {setInputType("IMAGE")}} className={"search-container"}>
+          return <div className={"search-container"}>
               <CustomSearchInput/>
           </div>
       }
