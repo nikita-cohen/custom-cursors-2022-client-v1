@@ -8,7 +8,6 @@
 /* Customize the label (the container) */
 .container {
     display: block;
-
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
@@ -75,8 +74,8 @@
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-    left: 9px;
-    top: 5px;
+    left: 7px;
+    top: 3px;
     width: 5px;
     height: 10px;
     border: solid white;
@@ -116,6 +115,25 @@
     display: flex;
     align-items: center;
     margin-left: 12px;
+    cursor: default;
+}
+
+.txt-container-pool-check-box-checked {
+    height: 36px;
+    width: 300px;
+    left: 439px;
+    top: 211px;
+    font-family: 'Inter',sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    cursor: default;
 }
 
 .check-box-v-container {

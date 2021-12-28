@@ -12,10 +12,17 @@
     font-style: normal
 }
 
+.body-container-pool-page {
+    min-height: 100vh;
+    background: #F6FBFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .pool-page-container {
     width: 100%;
     background: #F6FBFF;
-
 }
 
 .image-container-pool {

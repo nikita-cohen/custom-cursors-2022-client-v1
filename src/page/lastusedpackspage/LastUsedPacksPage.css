@@ -5,6 +5,14 @@
     font-style: normal
 }
 
+.body-container-last-used {
+    min-height: 100vh;
+    background: #F6FBFF;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
 .view-container{
     width: 100%;
     background: #F6FBFF;

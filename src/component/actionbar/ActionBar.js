@@ -2,10 +2,12 @@ import "./ActionBar.css";
 import InnerLayout from "../innerlayout/InnerLayout";
 import {CustomSearchInput} from "../customsearchinput/CustomSearchInput";
 import {useState} from "react";
+import {useHistory} from "react-router-dom";
 
 export function ActionBar(props) {
 
     const [inputType, setInputType] = useState(props.type);
+    const history = useHistory();
 
     const changeInputType = () => {
       if (inputType === "IMAGE") {
@@ -28,7 +30,7 @@ export function ActionBar(props) {
         <div className="action-bar">
             <InnerLayout>
                 <div className="menu-style">
-                    <div className="vector-container">
+                    <div onClick={() => history.push("/cursor-collection")} className="vector-container">
                         <img src="vector.png" alt="vector"/>
                         <div className="logo-txt-container">
                             <div className="logo-txt">
@@ -37,7 +39,7 @@ export function ActionBar(props) {
                         </div>
                     </div>
                     {changeInputType()}
-                    <div className="how-to-use-container">
+                    <div onClick={() => history.push("/how-to-use")} className="how-to-use-container">
                         <div className="how-to-use-txt">
                             How to use
                         </div>

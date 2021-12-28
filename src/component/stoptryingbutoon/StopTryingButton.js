@@ -5,6 +5,10 @@ export function StopTryingButton(props) {
 
     const [type, setType] = useState(props.type);
 
+    console.log(props)
+
+    props.onTry(type);
+
     const onClickBtn = () => {
         if (type === "stop"){
             setType("try")

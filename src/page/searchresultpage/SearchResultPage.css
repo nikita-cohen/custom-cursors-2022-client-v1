@@ -13,8 +13,15 @@
 }
 
 .inner-style-search-page{
-    width: 100%;
     background: #F6FBFF;
+}
+
+.body-container-search-page {
+    min-height: 100vh;
+    background: #F6FBFF;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .txt-container-search-result{

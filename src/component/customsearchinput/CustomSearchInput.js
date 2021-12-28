@@ -1,9 +1,11 @@
 import "./CustomSearchInput.css"
 import {useState} from "react";
+import {useHistory} from "react-router-dom";
 
 export function CustomSearchInput(props) {
 
     const [display, setDisplay] = useState("none")
+    const history = useHistory()
 
     const onChangeDisplay = (event) => {
       if (event.target.value === "") {
@@ -25,7 +27,11 @@ export function CustomSearchInput(props) {
     return(
       <div className={"custom-search-input-container"}>
           <div>
-              <input onChange={(event) => onChangeDisplay(event)} className={onDropDownDisplay()} placeholder="search" type={"text"}/>
+              <input onKeyPress={(event) => {
+                  if(event.key === 'Enter'){
+                      history.push("/search-result")
+                  }
+              }} onChange={(event) => onChangeDisplay(event)} className={onDropDownDisplay()} placeholder="search" type={"text"}/>
           </div>
           <div id={"drop-down"} className={"list-container-input"} style={{display: display}}>
               <ul>

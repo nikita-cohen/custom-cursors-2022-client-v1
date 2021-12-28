@@ -6,6 +6,7 @@ import {Footer} from "../../component/footer/Footer";
 
 export function ReinstallPage(props) {
     return(
+        <div className={"reinstall-body-container"}>
         <div>
             <ActionBar type={"IMAGE"}/>
             <div className={"reinstall-page-container"}>
@@ -25,9 +26,10 @@ export function ReinstallPage(props) {
                         </div>
                     </div>
                 </InnerLayout>
-                <div className={"footer-container-reinstall"}>
-                    <Footer/>
-                </div>
+            </div>
+        </div>
+            <div className={"footer-container-reinstall"}>
+                <Footer/>
             </div>
         </div>
     )

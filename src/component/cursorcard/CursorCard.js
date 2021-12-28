@@ -3,6 +3,8 @@ import {AddButton} from "../addbutton/AddButton";
 import {StopTryingButton} from "../stoptryingbutoon/StopTryingButton";
 
 export function CursorCard(props) {
+
+    console.log(props)
     return(
         <div className="card-container">
             <div className="cursor-name-txt-container">
@@ -18,7 +20,7 @@ export function CursorCard(props) {
                 <AddButton type="ADD"/>
             </div>
             <div className="add-button-card">
-                <StopTryingButton type="try"/>
+                <StopTryingButton onTry={props.onTry} type="try"/>
             </div>
             </div>
         </div>

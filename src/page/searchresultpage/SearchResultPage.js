@@ -7,6 +7,9 @@ import {Footer} from "../../component/footer/Footer";
 
 export function SearchResultPage(props) {
     return (
+        <div className={"body-container-search-page"}>
+
+
         <div className={"page-search-result-container"}>
             <ActionBar type={"SEARCH"}/>
             <div className={"inner-style-search-page"}>
@@ -29,9 +32,11 @@ export function SearchResultPage(props) {
                         <ToAllCollectionButton/>
                     </div>
                 </InnerLayout>
-                <div className={"footer-result-container"}>
-                    <Footer/>
-                </div>
+
+            </div>
+        </div>
+            <div className={"footer-result-container"}>
+                <Footer/>
             </div>
         </div>
     )

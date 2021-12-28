@@ -17,7 +17,7 @@ export function PoolPage(props) {
         {"id" : "3", "checked": false},
         {"id" : "4", "checked": false},
         {"id" : "5", "checked": false},
-        {"id" : "6", checked: false}
+        {"id" : "6", "checked": false}
     ]);
 
     const onClickChangeVisibility = (id, type) => {
@@ -40,6 +40,7 @@ export function PoolPage(props) {
     }
 
     return (
+        <div className={"body-container-pool-page"}>
         <div>
             <ActionBar type={"IMAGE"}/>
             <div className={"pool-page-container"}>
@@ -71,15 +72,17 @@ export function PoolPage(props) {
                             <div className={"margin-check-box"}>
                                 <TextAriaForPool onClickChange={onClickChangeVisibility}  idC={"6"}/>
                             </div>
-                            <div>
+                            <div className={"margin-check-box"}>
                                 <SendFeedBackButton type={changeVisibility}/>
                             </div>
                         </div>
                     </div>
                 </InnerLayout>
-                <div className={"footer-pool-page"}>
-                    <Footer/>
-                </div>
+
+            </div>
+        </div>
+            <div className={"footer-pool-page"}>
+                <Footer/>
             </div>
         </div>
     )

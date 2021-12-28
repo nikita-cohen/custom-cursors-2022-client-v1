@@ -7,6 +7,7 @@ import InnerLayout from "../../component/innerlayout/InnerLayout";
 
 export function LastUsedPacksPage(props) {
     return(
+        <div className={"body-container-last-used"}>
         <div className={"page-container-last-used"}>
             <ActionBar type={"IMAGE"}/>
             <div className={"view-container"}>
@@ -46,9 +47,10 @@ export function LastUsedPacksPage(props) {
                         <ToAllCollectionButton/>
                     </div>
                 </InnerLayout>
-                <div className={"footer-last-used"}>
-                    <Footer/>
-                </div>
+            </div>
+        </div>
+            <div className={"footer-last-used"}>
+                <Footer/>
             </div>
         </div>
     )

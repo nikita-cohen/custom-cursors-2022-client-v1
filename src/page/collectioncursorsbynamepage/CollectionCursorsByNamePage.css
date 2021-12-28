@@ -5,6 +5,14 @@
     font-style: normal
 }
 
+.body-container-collection-cursors {
+    min-height: 100vh;
+    background: #F6FBFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .view-container {
     width: 100%;
     background: #F6FBFF;

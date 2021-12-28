@@ -8,9 +8,11 @@ export function CheckBoxForTextAria(props) {
         if (!checked) {
             setChecked(true)
             props.onClickChange(props.idC, true)
+            props.onClickChecked(false)
         } else if (checked) {
             setChecked(false);
             props.onClickChange(props.idC, false)
+            props.onClickChecked(true)
         }
     }
 

@@ -12,6 +12,15 @@
     font-style: normal
 }
 
+
+.body-collection-page-container {
+    background:  #F6FBFF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .collection-cards-main-container{
     width: 100%;
     background: #F6FBFF;

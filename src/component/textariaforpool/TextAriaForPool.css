@@ -9,7 +9,8 @@
 }
 
 .txt-aria-width > textarea {
-    width: 422px;
+    width: 426px;
+    border-top: none;
 }
 
 .txt-design-aria {
@@ -19,5 +20,6 @@
     top: 467px;
     border-radius: 0 0 7px 7px;
     background: #F6FBFF;
+    resize: none;
 
 }

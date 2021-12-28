@@ -68,15 +68,16 @@
     top: 76px;
     border-radius: 8px 8px 0 0;
     background: #168FFF;
-    border: 1px solid #80D9FF;
+    border: 1px  solid #80D9FF;
     display: flex;
+    border-bottom: none;
 }
 
 
 /* Style the checkmark/indicator */
 .container-aria .checkmark-aria:after {
-    left: 9px;
-    top: 5px;
+    left: 7px;
+    top: 3px;
     width: 5px;
     height: 10px;
     border: solid white;

@@ -3,6 +3,14 @@
     background: #F6FBFF;
 }
 
+.reinstall-body-container {
+    min-height: 100vh;
+    background: #F6FBFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .container-inner-reinstall-page {
     display: flex;
     flex-direction: column;

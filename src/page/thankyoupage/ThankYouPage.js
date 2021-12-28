@@ -17,6 +17,7 @@ export function ThankYouPage(props) {
     }
 
     return (
+        <div className={"body-container-thanks-page"}>
         <div>
             <ActionBar type={"IMAGE"}/>
             <div className={"thank-you-page-container"}>
@@ -42,9 +43,10 @@ export function ThankYouPage(props) {
                         </div>
                     </div>
                 </InnerLayout>
-                <div className={"footer-container-thank-you-page"}>
-                    <Footer/>
-                </div>
+            </div>
+        </div>
+            <div className={"footer-container-thank-you-page"}>
+                <Footer/>
             </div>
         </div>
     )

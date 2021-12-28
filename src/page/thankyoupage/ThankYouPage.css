@@ -17,6 +17,14 @@
     background: #F6FBFF;
 }
 
+.body-container-thanks-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #F6FBFF;
+}
+
 .description-thank-you-page-container {
     font-family: 'Inter', sans-serif;
     font-size: 18px;

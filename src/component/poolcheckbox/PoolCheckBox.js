@@ -5,6 +5,8 @@ export function PoolCheckBox(props) {
 
     const [checked , setChecked] = useState(false);
 
+    console.log(checked)
+
     const onClickCheckBox = () => {
       if (!checked) {
           setChecked(true)
@@ -15,28 +17,43 @@ export function PoolCheckBox(props) {
       }
     }
 
-    const getClass = () => {
-      if (!checked) {
-          return "pool-check-box-container"
-      } else {
-          return "pool-check-box-container-check"
-      }
-    }
 
-    return (
-        <div className={getClass()}>
-            <div className={"txt-container-pool-check-box"}>
-                {props.text}
-            </div>
-            <div className={"direct"}>
-                <div  className={"check-box-v-container"}>
-                    <label className="container">
-                        <input onClick={onClickCheckBox} type="checkbox"/>
-                        <span className="checkmark"/>
-                    </label>
+    const showView = () => {
+        if (!checked) {
+            return <div className={"pool-check-box-container"}>
+                <div className={"txt-container-pool-check-box"}>
+                    {props.text}
+                </div>
+                <div  className={"direct"}>
+                    <div className={"check-box-v-container"}>
+                        <label className="container">
+                            <input  onClick={onClickCheckBox} type="checkbox"/>
+                            <span className="checkmark"/>
+                        </label>
+                    </div>
                 </div>
             </div>
+        } else {
+            return <div className={"pool-check-box-container-check"}>
+                <div className={"txt-container-pool-check-box-checked"}>
+                    {props.text}
+                </div>
+                <div className={"direct"}>
+                    <div   className={"check-box-v-container"}>
+                        <label  className="container">
+                            <input onClick={onClickCheckBox} checked={true} type="checkbox"/>
+                            <span  className="checkmark"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        }
+    }
 
+
+    return (
+        <div>
+            {showView()}
         </div>
     )
 }

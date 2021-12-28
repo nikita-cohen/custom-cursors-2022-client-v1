@@ -1,6 +1,9 @@
 import "./SendFeedBackButton.css"
+import {useHistory} from "react-router-dom";
 
 export function SendFeedBackButton(props) {
+
+    const history = useHistory();
 
     const showView = () => {
       if (props.type === "INACTIVE") {
@@ -10,7 +13,7 @@ export function SendFeedBackButton(props) {
               </div>
           </div>
       } else if (props.type === "ACTIVE") {
-          return <div className={"active-btn-feed-back"}>
+          return <div onClick={() => history.push("/pool-thank-you")} className={"active-btn-feed-back"}>
               <div className={"txt-style-feed-back"}>
                   Send your feedback
               </div>

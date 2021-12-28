@@ -7,6 +7,7 @@ import InnerLayout from "../../component/innerlayout/InnerLayout";
 
 export function CursorCollectionPage(props) {
     return(
+        <div className={"body-collection-page-container"}>
         <div className={"main-cursor-collection-container"}>
             <ActionBar type={"IMAGE"}/>
             <div className={"collection-cards-main-container"}>
@@ -51,9 +52,11 @@ export function CursorCollectionPage(props) {
                         <GetMoreCursorsButton/>
                     </div>
                 </InnerLayout>
-                <div className={"footer-sizing"}>
-                    <Footer/>
-                </div>
+
+            </div>
+        </div>
+            <div className={"footer-sizing"}>
+                <Footer/>
             </div>
         </div>
     )
