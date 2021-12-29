@@ -5,7 +5,7 @@ import {PoolCheckBox} from "../../component/poolcheckbox/PoolCheckBox";
 import {TextAriaForPool} from "../../component/textariaforpool/TextAriaForPool";
 import {SendFeedBackButton} from "../../component/sendfeedbackbutton/SendFeedBackButton";
 import {Footer} from "../../component/footer/Footer";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 export function PoolPage(props) {
 

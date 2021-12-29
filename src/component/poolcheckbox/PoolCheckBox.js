@@ -5,49 +5,28 @@ export function PoolCheckBox(props) {
 
     const [checked , setChecked] = useState(false);
 
-    console.log(checked)
-
-    const onClickCheckBox = () => {
-      if (!checked) {
-          setChecked(true)
-          props.onClickChange(props.idC, true)
-      } else if (checked) {
-          setChecked(false);
-          props.onClickChange(props.idC, false)
-      }
+    const handleOnChange = (e) => {
+        const _checked = e.target.checked;
+        props.onClickChange(props.idC, _checked);
+        setChecked(_checked)
     }
 
-
     const showView = () => {
-        if (!checked) {
-            return <div className={"pool-check-box-container"}>
-                <div className={"txt-container-pool-check-box"}>
-                    {props.text}
-                </div>
-                <div  className={"direct"}>
-                    <div className={"check-box-v-container"}>
-                        <label className="container">
-                            <input  onClick={onClickCheckBox} type="checkbox"/>
-                            <span className="checkmark"/>
-                        </label>
+        const classNameCheckBox = checked ? "pool-check-box-container-check" : "pool-check-box-container";
+        const classNameContainer = checked ? "txt-container-pool-check-box-checked" : "txt-container-pool-check-box";
+        return <label className={classNameCheckBox}>
+            <div className={classNameContainer}>
+                {props.text}
+            </div>
+            <div  className={"direct"}>
+                <div className={"check-box-v-container"}>
+                    <div className="container">
+                        <input defaultChecked={checked} type="checkbox" onChange={handleOnChange}/>
+                        <span className="checkmark"/>
                     </div>
                 </div>
             </div>
-        } else {
-            return <div className={"pool-check-box-container-check"}>
-                <div className={"txt-container-pool-check-box-checked"}>
-                    {props.text}
-                </div>
-                <div className={"direct"}>
-                    <div   className={"check-box-v-container"}>
-                        <label  className="container">
-                            <input onClick={onClickCheckBox} checked={true} type="checkbox"/>
-                            <span  className="checkmark"/>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        }
+        </label>
     }
 
 
