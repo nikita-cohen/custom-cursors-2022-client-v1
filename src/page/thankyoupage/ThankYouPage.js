@@ -27,16 +27,18 @@ export function ThankYouPage(props) {
                             <img src={"clip-emoji.svg"} alt={"clip"}/>
                         </div>
                         <div className={"header-container-title-thank-you-page"}>
-                            thank you for your responses
+                            THANK YOU FOR YOUR RESPONSES
                         </div>
-                        <div className={"description-thank-you-page-container"}>
+                        <div className={"description-container-thanks-page"}>
+                            <div className={"description-thank-you-page-container"}>
                                 Please, leave your email as we have a couple of
-                        </div>
-                        <div className={"description-thank-you-page-container"}>
-                            questions to make our extension better.
+                            </div>
+                            <div className={"description-thank-you-page-container"}>
+                                questions to make our extension better.
+                            </div>
                         </div>
                         <div className={"input-thank-you-container"}>
-                            <input onChange={(event) => {setEmail(event.target.value)}} placeholder={"please write your email here"} className={"input-thank-you"}/>
+                            <input onChange={(event) => {setEmail(event.target.value)}} placeholder={"Please write your email here"} className={"input-thank-you"}/>
                         </div>
                         <div className={"btn-holder-submit-feed"}>
                             <SubmitFeedBackButton type={type}/>

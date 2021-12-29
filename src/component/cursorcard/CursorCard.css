@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    box-sizing: border-box;
 }
 
 .card-container:hover{
@@ -26,6 +26,7 @@
      background-image: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    box-sizing: border-box;
 }
 
 .cursor-name-txt-container{
@@ -35,6 +36,7 @@
     top: 14px;
     margin-top: 10px;
     cursor: default;
+    box-sizing: border-box;
 }
 
 .cursor-name-txt{
@@ -45,6 +47,7 @@
     line-height: 15px;
     text-align: center;
     color: #000000;
+    box-sizing: border-box;
 }
 
 .img-card-container{
@@ -53,12 +56,15 @@
     left: 26px;
     top: 58px;
     margin-top: 20px;
+    box-sizing: border-box;
 }
 
 .add-button-card{
     margin-top: 7px;
+    box-sizing: border-box;
 }
 
 .button-container{
     margin-top: 20px;
+    box-sizing: border-box;
 }

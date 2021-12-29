@@ -23,15 +23,23 @@ export function CustomSearchInput(props) {
       }
     }
 
+    const onDropDownDisplayDiv = () => {
+        if (display === "none") {
+            return ""
+        } else {
+            return "input-place-holder"
+        }
+    }
+
 
     return(
       <div className={"custom-search-input-container"}>
-          <div>
+          <div className={onDropDownDisplayDiv()}>
               <input onKeyPress={(event) => {
                   if(event.key === 'Enter'){
                       history.push("/search-result")
                   }
-              }} onChange={(event) => onChangeDisplay(event)} className={onDropDownDisplay()} placeholder="search" type={"text"}/>
+              }} onChange={(event) => onChangeDisplay(event)} className={onDropDownDisplay()} placeholder="Search" type={"text"}/>
           </div>
           <div id={"drop-down"} className={"list-container-input"} style={{display: display}}>
               <ul>

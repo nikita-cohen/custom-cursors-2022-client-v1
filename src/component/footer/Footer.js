@@ -11,7 +11,7 @@ export function Footer(props) {
             <InnerLayout>
                 <div className={"menu-style-footer"}>
                     <div onClick={() => history.push("/cursor-collection")} className="vector-container">
-                        <img src="vector.png" alt="vector"/>
+                        <img src="vector.svg" alt="vector"/>
                         <div className="logo-txt-container">
                             <div className="logo-txt">
                                 Custom Cursors
@@ -35,7 +35,7 @@ export function Footer(props) {
                         </div>
                     </div>
                     <div className="col">
-                        <div onClick={() => history.push("/privacy-policy")} className="txt-style" >
+                        <div onClick={() => history.push("/privacy-policy")} className="txt-style privacy" >
                             Privacy Policy
                         </div>
                     </div>

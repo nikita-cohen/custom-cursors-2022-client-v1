@@ -4,21 +4,32 @@ import {useState} from "react";
 
 export function TextAriaForPool(props) {
 
-    const [isDisable, setIsDisable] = useState(true);
+    const [textValue, setTextValue] = useState("");
+    const [check, setCheck] = useState(false)
 
-    const checkIfChecked = (checked) => {
-      if (checked === true) {
-          setIsDisable(true)
-      } else {
-          setIsDisable(false)
-      }
+    if (textValue !== "" && check === false) {
+        setCheck(true);
+        props.onClickChange(props.idC, true)
+    } else if (textValue === "" && check === true) {
+        setCheck(false)
+        props.onClickChange(props.idC, false)
+    }
+
+    const changeBorder = () => {
+        if (check) {
+            return "txt-design-aria-border-blue"
+        } else {
+            return "txt-design-aria"
+        }
     }
 
     return(
         <div>
-            <CheckBoxForTextAria idC={props.idC} onClickChecked={checkIfChecked} onClickChange={props.onClickChange} />
+            <CheckBoxForTextAria idC={props.idC} checked={check}  onClickChange={props.onClickChange} />
             <div className={"txt-aria-width"}>
-                <textarea disabled={isDisable} id={"txt-aria"} placeholder={"How else can we improve Custom Cursor?"} className={"txt-design-aria"}/>
+                <textarea  onChange={(event) => {
+                    setTextValue(event.target.value);
+                }} id={"txt-aria"} placeholder={"How else can we improve Custom Cursor?"} className={changeBorder()}/>
             </div>
         </div>
     )

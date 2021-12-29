@@ -17,6 +17,10 @@
     background: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
 }
 
+.privacy {
+    margin-top: -19px;
+}
+
 .menu-style-footer{
     display: flex;
     height: 100px;

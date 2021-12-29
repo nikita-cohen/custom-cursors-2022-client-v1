@@ -8,8 +8,6 @@
 /* Customize the label (the container) */
 .container-aria {
     display: block;
-
-    cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -60,6 +58,9 @@
 
 }
 
+.pool-check-box-container-check-aria .txt-container-pool-check-box-aria {
+    color: white;
+}
 
 .pool-check-box-container-check-aria{
     height: 36px;
@@ -81,7 +82,7 @@
     width: 5px;
     height: 10px;
     border: solid white;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);

@@ -2,27 +2,15 @@ import "./CheckBoxForTextAria.css";
 import {useState} from "react";
 
 export function CheckBoxForTextAria(props) {
-    const [checked , setChecked] = useState(false);
-
-    const onClickCheckBox = () => {
-        if (!checked) {
-            setChecked(true)
-            props.onClickChange(props.idC, true)
-            props.onClickChecked(false)
-        } else if (checked) {
-            setChecked(false);
-            props.onClickChange(props.idC, false)
-            props.onClickChecked(true)
-        }
-    }
 
     const getClass = () => {
-        if (!checked) {
+        if (!props.checked) {
             return "pool-check-box-container-aria"
         } else {
             return "pool-check-box-container-check-aria"
         }
     }
+
 
     return (
         <div className={getClass()}>
@@ -35,12 +23,11 @@ export function CheckBoxForTextAria(props) {
             <div className={"direct-aria"}>
                 <div className={"check-box-v-container-aria"}>
                     <label className="container-aria">
-                        <input onClick={onClickCheckBox} type="checkbox"/>
+                        <input checked={props.checked} type="checkbox"/>
                         <span className="checkmark-aria"/>
                     </label>
                 </div>
             </div>
-
         </div>
     )
 }

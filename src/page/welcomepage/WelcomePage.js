@@ -65,31 +65,20 @@ export function WelcomePage(props) {
                         <div className="first-element-container">
                             <div className="txt-header-container">
                                 <div className="txt-header">
-                                    THANK YOU FOR CHOOSING
+                                    THANK YOU FOR CHOOSING CUSTOM CURSORS!
                                 </div>
-                                <div className="txt-header">
-                                    CUSTOM CURSORS!
-                                </div>
+                                <br/>
                                 <div>
                                     <div className="description-txt">
-                                        This Chrome extension can change your regular mouse pointer
-                                    </div>
-                                    <div className="description-txt">
-                                        to a fun, custom cursor.
+                                        This Chrome extension can change your regular mouse pointer to a fun, custom cursor.
                                     </div>
                                     <br/>
                                     <div className="description-txt">
-                                        Open the extension window and click on any cursor you like,
-                                    </div>
-                                    <div className="description-txt">
-                                        then move your mouse to this page and click on check area.
+                                        Open the extension window and click on any cursor you like, then move your mouse to this page and click on check area.
                                     </div>
                                     <br/>
                                     <div className="description-txt">
-                                        Due to Google policy restrictions extensions cannot change
-                                    </div>
-                                    <div className="description-txt">
-                                        cursor on Chrome Web Store, inner pages and Homepage.
+                                        Due to Google policy restrictions extensions cannot change cursor on Chrome Web Store, inner pages and Homepage.
                                     </div>
                                     <br/>
                                     <div className="description-txt">

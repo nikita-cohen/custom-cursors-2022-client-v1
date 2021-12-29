@@ -9,8 +9,25 @@
 }
 
 .txt-aria-width > textarea {
+    padding-top: 8px;
+    padding-left: 12px;
+
+}
+
+.txt-aria-width > textarea::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 13px;
+    text-align: left;
+    color: #6D6D6D;
+}
+
+.txt-aria-width > textarea {
     width: 426px;
     border-top: none;
+    outline: none;
 }
 
 .txt-design-aria {
@@ -21,5 +38,20 @@
     border-radius: 0 0 7px 7px;
     background: #F6FBFF;
     resize: none;
+    border: 1px solid black;
+}
 
+.txt-design-aria-border-blue {
+    height: 63px;
+    width: 420px;
+    left: 428px;
+    top: 467px;
+    border-radius: 0 0 7px 7px;
+    background: white;
+    resize: none;
+    border: 1px solid #80D9FF;
+}
+
+.txt-design-aria-border-blue::-webkit-scrollbar {
+    display: none;
 }

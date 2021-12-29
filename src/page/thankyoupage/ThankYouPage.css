@@ -25,6 +25,12 @@
     background: #F6FBFF;
 }
 
+.description-container-thanks-page {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
 .description-thank-you-page-container {
     font-family: 'Inter', sans-serif;
     font-size: 18px;
@@ -33,6 +39,7 @@
     line-height: 22px;
     text-align: center;
     color: black;
+
 }
 
 .input-thank-you-container {
@@ -48,7 +55,7 @@
     background: white;
     border: 1px solid #6D6D6D;
     box-sizing: border-box;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .content-container-thank-you-page {

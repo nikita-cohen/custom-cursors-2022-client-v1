@@ -12,11 +12,11 @@ export function PoolPage(props) {
     const [changeVisibility, setChangeVisibility] = useState("INACTIVE");
 
     const [checkBoxes, setCheckBoxes] = useState([
-        {"id" : "1", "checked": false},
-        {"id" : "2", "checked": false},
-        {"id" : "3", "checked": false},
-        {"id" : "4", "checked": false},
-        {"id" : "5", "checked": false},
+        {"id" : "1", "checked": false, "message" : "It doesn’t have cursors, that I need"},
+        {"id" : "2", "checked": false, "message" : "The extension isn’t convenient in using"},
+        {"id" : "3", "checked": false, "message" : "It isn’t what I expected"},
+        {"id" : "4", "checked": false, "message" : "It isn’t working properly"},
+        {"id" : "5", "checked": false, "message" : "It has a negative effect on my browser"},
         {"id" : "6", "checked": false}
     ]);
 
@@ -50,7 +50,7 @@ export function PoolPage(props) {
                             <img src={"pool-emoji.svg"} alt={"emoji"}/>
                         </div>
                         <div className={"header-title-container-pool"}>
-                            Help us improve
+                            HELP US IMPROVE
                         </div>
                         <div className={"description-container-pool"}>
                             Why did you uninstall Custom Cursor? Check all that apply

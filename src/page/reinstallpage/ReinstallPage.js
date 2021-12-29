@@ -16,7 +16,7 @@ export function ReinstallPage(props) {
                             <img src={"sad-emoji.svg"} alt={"sad-Emoji"}/>
                         </div>
                         <div className={"header-reinstall-container"}>
-                            we are  so grateful for your answer
+                            WE ARE SO GRATEFUL FOR YOUR ANSWER
                         </div>
                         <div className={"description-txt-reinstall"}>
                             To be honest, we don't want to lose you

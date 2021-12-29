@@ -16,7 +16,7 @@ import {ReinstallPage} from "./page/reinstallpage/ReinstallPage";
 
 function App() {
     return (
-        <div>
+        <div className={"border-main"}>
             <Route path={"/"} exact component={WelcomePage}/>
             <Route path="/cursor-collection" exact component={CursorCollectionPage}/>
             <Route path="/last-used" exact component={LastUsedPacksPage}/>

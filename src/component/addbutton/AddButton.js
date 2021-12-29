@@ -20,7 +20,7 @@ export function AddButton(props) {
                    </div>
         } else if (type === "SUCCEED"){
             return <div onClick={onClickBtn} className="add-button" style={{backgroundColor: "#00D108"}}>
-                    <p className="i"><i className="far fa-check-circle fa-lg"/></p>
+                    <p className="i"><img src={"v-card.svg"} alt={"some"}/></p>
                 </div>
         }
     }
