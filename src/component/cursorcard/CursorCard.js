@@ -8,11 +8,11 @@ export function CursorCard(props) {
         <div className="card-container">
             <div className="cursor-name-txt-container">
                 <div className="cursor-name-txt">
-                    Friday Night Funkin' Red Impostor Cursor
+                    Курсор Аватар: Легенда о Корре Корра
                 </div>
             </div>
             <div className="img-card-container">
-                <img className={"image-collection-cursor-card"} src="https://cdn.custom-cursor.com/packs/2635/ext/avatar-the-last-airbender-aang-and-airbender-staff-cursor-pack-a.png" alt="cursor"/>
+                <img className={"image-collection-cursor-card"} src="https://cdn.custom-cursor.com/packs/5634/medium/avatar-korra-pack.png" alt="cursor"/>
             </div>
             <div className="button-container">
             <div>
