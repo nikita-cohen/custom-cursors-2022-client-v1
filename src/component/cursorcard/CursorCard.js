@@ -12,7 +12,7 @@ export function CursorCard(props) {
                 </div>
             </div>
             <div className="img-card-container">
-                <img src="cursor.png" alt="cursor"/>
+                <img className={"image-collection-cursor-card"} src="https://cdn.custom-cursor.com/packs/2635/ext/avatar-the-last-airbender-aang-and-airbender-staff-cursor-pack-a.png" alt="cursor"/>
             </div>
             <div className="button-container">
             <div>

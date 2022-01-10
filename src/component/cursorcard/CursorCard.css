@@ -64,6 +64,11 @@
     box-sizing: border-box;
 }
 
+.image-collection-cursor-card {
+    width: 140px;
+    height: 75px;
+}
+
 .button-container{
     margin-top: 20px;
     box-sizing: border-box;
