@@ -1,17 +1,26 @@
 import {combineReducers} from "redux";
 
-const galleryImageReducer = (currentState = [], action) => {
+const collectionReducer = (currentState = [], action) => {
     switch (action.type) {
-        case "ADD" :
+        case "COLLECTION/GET" :
+            return action.payload;
+        default:
             return currentState;
+    }
+};
+
+const cursorsReducer = (currentState = [], action) => {
+    switch (action.type) {
+        case "COLLECTION-CURSOR/GET" :
+            return action.payload;
         default:
             return currentState;
     }
 };
 
 
-
 export default combineReducers({
-    galleryImage: galleryImageReducer
+    collection: collectionReducer,
+    cursors : cursorsReducer
 });
 

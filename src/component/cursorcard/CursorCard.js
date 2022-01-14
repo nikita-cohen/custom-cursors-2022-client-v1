@@ -8,11 +8,11 @@ export function CursorCard(props) {
         <div className="card-container">
             <div className="cursor-name-txt-container">
                 <div className="cursor-name-txt">
-                    Курсор Аватар: Легенда о Корре Корра
+                    {props.cursorName}
                 </div>
             </div>
             <div className="img-card-container">
-                <img className={"image-collection-cursor-card"} src="https://cdn.custom-cursor.com/packs/5634/medium/avatar-korra-pack.png" alt="cursor"/>
+                <img className={"image-collection-cursor-card"} src={props.imageUrl} alt="cursor"/>
             </div>
             <div className="button-container">
             <div>

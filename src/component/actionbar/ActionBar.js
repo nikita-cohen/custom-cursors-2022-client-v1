@@ -16,7 +16,7 @@ export function ActionBar(props) {
                        Search
                    </div>
                    <div  className="img-search-container">
-                   <img src="Search.svg" alt="search"/>
+                   <img src={process.env.PUBLIC_URL + "/Search.svg"} alt="search"/>
                    </div>
                  </div>
       } else if (inputType === "SEARCH") {
@@ -31,7 +31,7 @@ export function ActionBar(props) {
             <InnerLayout>
                 <div className="menu-style">
                     <div onClick={() => history.push("/cursor-collection")} className="vector-container">
-                        <img src="vector.svg" alt="vector"/>
+                        <img src={process.env.PUBLIC_URL + "/vector.svg"} alt="vector"/>
                         <div className="logo-txt-container">
                             <div className="logo-txt">
                                 Custom Cursors
@@ -44,7 +44,7 @@ export function ActionBar(props) {
                             How to use
                         </div>
                         <div className="how-to-use-img-container">
-                            <img src="how-to-use.svg" alt="how to use "/>
+                            <img src={process.env.PUBLIC_URL + "/how-to-use.svg"} alt="how to use "/>
                         </div>
                     </div>
                 </div>

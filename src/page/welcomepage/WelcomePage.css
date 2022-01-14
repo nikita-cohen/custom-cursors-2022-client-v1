@@ -170,6 +170,12 @@
     }
 }
 
+@media screen and (max-width: 1010px) {
+    .card-container-second {
+        grid-gap: 11px;
+    }
+}
+
 .more-cursors-btn-container{
     display: flex;
     justify-content: center;

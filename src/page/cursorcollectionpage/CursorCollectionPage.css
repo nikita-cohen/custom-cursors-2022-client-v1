@@ -64,6 +64,12 @@
     }
 }
 
+@media screen and (max-width: 1010px) {
+    .collections-card-container {
+        grid-gap: 13px;
+    }
+}
+
 
 .mt-to-collection-card{
     margin-top: 20px;

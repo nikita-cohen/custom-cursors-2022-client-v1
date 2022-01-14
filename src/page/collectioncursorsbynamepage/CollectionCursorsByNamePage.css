@@ -39,6 +39,11 @@
     }
 }
 
+@media screen and (max-width: 1010px) {
+    .card-container-by-name {
+        grid-gap: 11px;
+    }
+}
 
 
 .main-header-txt-container-by-name{

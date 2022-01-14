@@ -5,15 +5,15 @@ export function CollectionCard(props) {
     return (
         <div className="collection-card-container">
             <div className="img-collection-card-container">
-                <img src="collection-image.png" alt="collection"/>
+                <img className={"image-size-collection-card"} src={props.image} alt="collection"/>
             </div>
             <div className="collection-name-txt-container">
                 <div className="collection-name-txt">
-                    The Most Popular Cursors
+                    {props.text}
                 </div>
             </div>
             <div className="view-btn-collection-card">
-                <ViewCollectionButton/>
+                <ViewCollectionButton collectionName={props.text} collectionId={props.itemId}/>
             </div>
         </div>
     )

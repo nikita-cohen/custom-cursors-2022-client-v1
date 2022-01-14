@@ -15,5 +15,10 @@
     }
 }
 
+@media screen and (max-width: 1010px) {
+    .inner_layout {
+        max-width: 850px;
+    }
+}
 
 

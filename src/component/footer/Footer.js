@@ -11,7 +11,7 @@ export function Footer(props) {
             <InnerLayout>
                 <div className={"menu-style-footer"}>
                     <div onClick={() => history.push("/cursor-collection")} className="vector-container">
-                        <img src="vector.svg" alt="vector"/>
+                        <img src={process.env.PUBLIC_URL + "/vector.svg"} alt="vector"/>
                         <div className="logo-txt-container">
                             <div className="logo-txt">
                                 Custom Cursors

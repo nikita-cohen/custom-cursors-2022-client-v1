@@ -14,7 +14,7 @@ ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter forceRefresh={true}>
           <Provider store={createStore(reducer, applyMiddleware(thunk))}>
-           <App/>
+            <App/>
           </Provider>
       </BrowserRouter>
   </React.StrictMode>,

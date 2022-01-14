@@ -4,8 +4,34 @@ import {CollectionCard} from "../../component/collectioncard/CollectionCard";
 import {GetMoreCursorsButton} from "../../component/getmorecursorsbutton/GetMoreCursorsButton";
 import {Footer} from "../../component/footer/Footer";
 import InnerLayout from "../../component/innerlayout/InnerLayout";
+import {getAllCollection} from "../../redux/action";
+import connect from "react-redux/lib/connect/connect";
+import {useEffect, useState} from "react";
+import {MoreCollectionButton} from "../../component/morecollectionbutton/MoreCollectionButton";
 
-export function CursorCollectionPage(props) {
+
+
+function CursorCollectionPage(props) {
+
+    const [numOfCollections, setNumOfCollections] = useState(8);
+
+    useEffect(() => {
+        props.getAllCollection(numOfCollections)
+    },[numOfCollections])
+
+    const showCards = () => {
+        return props.collectionsCard.map(item =>
+            <div className={"mt-to-collection-card"}>
+                <CollectionCard itemId={item.id} image={item.imageUrl} text={item.title}/>
+            </div>
+        );
+    }
+
+    function getMoreCursors() {
+        setNumOfCollections(numOfCollections + 8);
+    }
+
+
     return(
         <div className={"body-collection-page-container"}>
         <div className={"main-cursor-collection-container"}>
@@ -23,33 +49,10 @@ export function CursorCollectionPage(props) {
                         </div>
                     </div>
                     <div className={"collections-card-container"}>
-                        <div className={"mt-to-collection-card"}>
-                            <CollectionCard/>
-                        </div>
-                        <div className={"mt-to-collection-card"}>
-                            <CollectionCard/>
-                        </div>
-                        <div className={"mt-to-collection-card"}>
-                            <CollectionCard/>
-                        </div>
-                        <div className={"mt-to-collection-card"}>
-                            <CollectionCard/>
-                        </div>
-                        <div className={"mt-to-collection-card"}>
-                            <CollectionCard/>
-                        </div>
-                        <div className={"mt-to-collection-card"}>
-                            <CollectionCard/>
-                        </div>
-                        <div className={"mt-to-collection-card"}>
-                            <CollectionCard/>
-                        </div>
-                        <div className={"mt-to-collection-card"}>
-                            <CollectionCard/>
-                        </div>
+                        {showCards()}
                     </div>
                     <div className={"btn-margin"}>
-                        <GetMoreCursorsButton/>
+                        <MoreCollectionButton moreCursor={getMoreCursors}/>
                     </div>
                 </InnerLayout>
 
@@ -61,3 +64,16 @@ export function CursorCollectionPage(props) {
         </div>
     )
 }
+
+const mapStateToProp = (state) => {
+    return {
+        collectionsCard : state.collection
+    };
+};
+
+const mapDispatchActions = () => {
+    return {
+        getAllCollection
+    };
+};
+export const CursorCollectionPageCollection = connect(mapStateToProp, mapDispatchActions())(CursorCollectionPage);

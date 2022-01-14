@@ -1,9 +1,12 @@
 import './App.css';
 import {Route} from "react-router-dom";
-import {WelcomePage} from "./page/welcomepage/WelcomePage";
-import {CursorCollectionPage} from "./page/cursorcollectionpage/CursorCollectionPage";
+import {WelcomePage, WelcomePageConnected} from "./page/welcomepage/WelcomePage";
+import {CursorCollectionPage, CursorCollectionPageCollection} from "./page/cursorcollectionpage/CursorCollectionPage";
 import {LastUsedPacksPage} from "./page/lastusedpackspage/LastUsedPacksPage";
-import {CollectionCursorsByNamePage} from "./page/collectioncursorsbynamepage/CollectionCursorsByNamePage";
+import {
+    CollectionCursorsByNamePage,
+    CollectionCursorsByNamePageConnected
+} from "./page/collectioncursorsbynamepage/CollectionCursorsByNamePage";
 import {SearchResultPage} from "./page/searchresultpage/SearchResultPage";
 import {TermsOfUsePage} from "./page/termsofusepage/TermsOfUsePage";
 import {PrivacyPolicyPage} from "./page/privacypolicypage/PrivacyPolicyPage";
@@ -17,10 +20,10 @@ import {ReinstallPage} from "./page/reinstallpage/ReinstallPage";
 function App() {
     return (
         <div className={"border-main"}>
-            <Route path={"/"} exact component={WelcomePage}/>
-            <Route path="/cursor-collection" exact component={CursorCollectionPage}/>
+            <Route path={"/"} exact component={WelcomePageConnected}/>
+            <Route path="/cursor-collection" exact component={CursorCollectionPageCollection}/>
             <Route path="/last-used" exact component={LastUsedPacksPage}/>
-            <Route path={"/collection-cursors"} exact component={CollectionCursorsByNamePage}/>
+            <Route path={"/collection-cursors/:id"} exact component={CollectionCursorsByNamePageConnected}/>
             <Route path={"/search-result"} exact component={SearchResultPage}/>
             <Route path={"/term-of-use"} exact component={TermsOfUsePage}/>
             <Route path={"/privacy-policy"} exact component={PrivacyPolicyPage}/>

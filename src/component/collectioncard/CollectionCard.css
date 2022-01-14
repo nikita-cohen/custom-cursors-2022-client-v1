@@ -25,6 +25,11 @@
     border-radius: 9px 9px 0 0;
 }
 
+.image-size-collection-card {
+    width: 276px;
+    height: 124px;
+}
+
 .collection-name-txt.container{
     height: 17px;
     width: 184px;

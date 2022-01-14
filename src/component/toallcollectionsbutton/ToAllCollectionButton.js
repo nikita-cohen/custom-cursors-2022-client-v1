@@ -6,7 +6,7 @@ export function ToAllCollectionButton(props){
     const history = useHistory();
 
     return(
-        <div onClick={() => history.push("cursor-collection")} className={"btn-container-to-all-collection"}>
+        <div onClick={() => history.push("/cursor-collection")} className={"btn-container-to-all-collection"}>
             <div className={"inner-txt"}>
                 To All Collections
             </div>

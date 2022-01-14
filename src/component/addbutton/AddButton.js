@@ -20,7 +20,7 @@ export function AddButton(props) {
                    </div>
         } else if (type === "SUCCEED"){
             return <div onClick={onClickBtn} className="add-button" style={{backgroundColor: "#00D108"}}>
-                    <p className="i"><img src={"v-card.svg"} alt={"some"}/></p>
+                    <p className="i"><img src={process.env.PUBLIC_URL + "/v-card.svg"} alt={"some"}/></p>
                 </div>
         }
     }

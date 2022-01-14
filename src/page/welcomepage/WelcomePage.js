@@ -5,10 +5,29 @@ import {SeeAllCollectionButton} from "../../component/seeallcollectionbutton/See
 import {CursorCard} from "../../component/cursorcard/CursorCard";
 import {GetMoreCursorsButton} from "../../component/getmorecursorsbutton/GetMoreCursorsButton";
 import {Footer} from "../../component/footer/Footer";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {getCollectionCursorsAxios} from "../../redux/action";
+import connect from "react-redux/lib/connect/connect";
 
 
 export function WelcomePage(props) {
+
+
+
+    useEffect(() => {
+        props.getCollectionCursorsAxios("61e147c4f63ebb2f8d484041")
+    },[])
+
+    const getMoreCursor = () => {
+
+    }
+
+
+    const showCursors = () => {
+        return props.cursors.map(cursor =>
+            <CursorCard cursorName={cursor.name} imageUrl={cursor.image} onTry={onTryCursor}/>)
+
+    }
 
     const cursor = "https://cdn.custom-cursor.com/db/cursor/pointer_342.png";
     const pointer = "https://cdn.custom-cursor.com/db/pointer/pointer_341.png";
@@ -116,19 +135,10 @@ export function WelcomePage(props) {
                             </div>
                         </div>
                         <div className={"card-container-second"}>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
-                            <CursorCard onTry={onTryCursor}/>
+                            {showCursors()}
                         </div>
                         <div className={"more-cursors-btn-container"}>
-                            <GetMoreCursorsButton/>
+                            <GetMoreCursorsButton getMore={getMoreCursor}/>
                         </div>
                     </InnerLayout>
                 </div>
@@ -139,3 +149,16 @@ export function WelcomePage(props) {
         </div>
     )
 }
+
+const mapStateToProp = (state) => {
+    return {
+        cursors : state.cursors
+    };
+};
+
+const mapDispatchActions = () => {
+    return {
+        getCollectionCursorsAxios
+    };
+};
+export const WelcomePageConnected = connect(mapStateToProp, mapDispatchActions())(WelcomePage);
