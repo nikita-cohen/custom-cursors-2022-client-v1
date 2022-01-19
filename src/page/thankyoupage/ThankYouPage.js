@@ -24,7 +24,7 @@ export function ThankYouPage(props) {
                     headers : {
                         'Content-Type' : 'application/json'
                     },
-                    body : JSON.stringify([[1, 0, 0, 0, 0, 0, 0, email]])
+                    body : JSON.stringify([[1, "", '', "", "", "", "", email]])
                 })
             console.log(response)
         } catch (e) {
