@@ -18,7 +18,8 @@ export function PoolPage(props) {
         {"id" : "2", "checked": false, "message" : "The extension isn’t convenient in using"},
         {"id" : "3", "checked": false, "message" : "It isn’t what I expected"},
         {"id" : "4", "checked": false, "message" : "It isn’t working properly"},
-        {"id" : "5", "checked": false, "message" : "It has a negative effect on my browser"}
+        {"id" : "5", "checked": false, "message" : "It has a negative effect on my browser"},
+        {"id" : "6", "checked" : false}
     ]);
 
     const setTextAriaMessage = (text) => {
