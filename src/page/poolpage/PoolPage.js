@@ -10,22 +10,27 @@ import {useState} from "react";
 export function PoolPage(props) {
 
     const [changeVisibility, setChangeVisibility] = useState("INACTIVE");
+    const [textAriaData, setTextAriaData] = useState("");
+
 
     const [checkBoxes, setCheckBoxes] = useState([
         {"id" : "1", "checked": false, "message" : "It doesn’t have cursors, that I need"},
         {"id" : "2", "checked": false, "message" : "The extension isn’t convenient in using"},
         {"id" : "3", "checked": false, "message" : "It isn’t what I expected"},
         {"id" : "4", "checked": false, "message" : "It isn’t working properly"},
-        {"id" : "5", "checked": false, "message" : "It has a negative effect on my browser"},
-        {"id" : "6", "checked": false}
+        {"id" : "5", "checked": false, "message" : "It has a negative effect on my browser"}
     ]);
+
+    const setTextAriaMessage = (text) => {
+        setTextAriaData(text)
+    }
+
 
     const onClickChangeVisibility = (id, type) => {
         let newState = checkBoxes.map(item => {
             if (id === item.id) {
                 item.checked = type
             }
-
             return item;
         })
 
@@ -70,10 +75,10 @@ export function PoolPage(props) {
                                 <PoolCheckBox onClickChange={onClickChangeVisibility}  idC={"5"} text={"It has a negative effect on my browser"}/>
                             </div>
                             <div className={"margin-check-box"}>
-                                <TextAriaForPool onClickChange={onClickChangeVisibility}  idC={"6"}/>
+                                <TextAriaForPool setText={setTextAriaMessage} onClickChange={onClickChangeVisibility}  idC={"6"}/>
                             </div>
                             <div className={"margin-check-box"}>
-                                <SendFeedBackButton type={changeVisibility}/>
+                                <SendFeedBackButton data={checkBoxes} textData={textAriaData} type={changeVisibility}/>
                             </div>
                         </div>
                     </div>

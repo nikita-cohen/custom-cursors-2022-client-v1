@@ -16,6 +16,22 @@ export function ThankYouPage(props) {
         setType("INACTIVE")
     }
 
+    const handleSubmit = async () => {
+        try {
+            const response = await fetch("https://v1.nocodeapi.com/nikita_cohen/google_sheets/oBnqwXbBKzilEghz?tabId=sheet1",
+                {
+                    method : "POST",
+                    headers : {
+                        'Content-Type' : 'application/json'
+                    },
+                    body : JSON.stringify([[1, 0, 0, 0, 0, 0, 0, email]])
+                })
+            console.log(response)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     return (
         <div className={"body-container-thanks-page"}>
         <div>
@@ -41,7 +57,7 @@ export function ThankYouPage(props) {
                             <input onChange={(event) => {setEmail(event.target.value)}} placeholder={"Please write your email here"} className={"input-thank-you"}/>
                         </div>
                         <div className={"btn-holder-submit-feed"}>
-                            <SubmitFeedBackButton type={type}/>
+                            <SubmitFeedBackButton handleSubmit={handleSubmit} type={type} />
                         </div>
                     </div>
                 </InnerLayout>

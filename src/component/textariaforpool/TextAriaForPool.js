@@ -23,6 +23,8 @@ export function TextAriaForPool(props) {
         }
     }
 
+    props.setText(textValue);
+
     return(
         <div>
             <CheckBoxForTextAria idC={props.idC} checked={check}  onClickChange={props.onClickChange} />

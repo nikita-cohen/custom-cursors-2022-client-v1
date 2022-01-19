@@ -13,7 +13,7 @@ export function CursorCard(props) {
         return (getComputedStyle(element, null).getPropertyValue(property));
     }
 
-    function changePointer(){
+    function changePointer() {
         let styleSheet = document.createElement('style');
 
         styleSheet.type = 'text/css';
@@ -24,7 +24,7 @@ export function CursorCard(props) {
         document.head.appendChild(styleSheet);
     }
 
-    function changeCursor(){
+    function changeCursor() {
         let styleSheet = document.createElement('style');
 
         styleSheet.type = 'text/css';

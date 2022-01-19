@@ -14,7 +14,9 @@ export function SubmitFeedBackButton(props) {
               </div>
           </div>
       } else if (props.type === "ACTIVE") {
-          return <div onClick={() => history.push("/pool-reinstall")} className={"active-btn-submit-feed-back"}>
+          return <div onClick={async () =>{
+              await props.handleSubmit()
+              history.push("/pool-reinstall")}} className={"active-btn-submit-feed-back"}>
               <div className={"txt-container-submit-feed-back"}>
                   Submit
               </div>
