@@ -1,6 +1,6 @@
 import "./ActionBar.css";
 import InnerLayout from "../innerlayout/InnerLayout";
-import {CustomSearchInput} from "../customsearchinput/CustomSearchInput";
+import {CustomSearchInput, CustomSearchInputConnected} from "../customsearchinput/CustomSearchInput";
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
 
@@ -21,7 +21,7 @@ export function ActionBar(props) {
                  </div>
       } else if (inputType === "SEARCH") {
           return <div className={"search-container"}>
-              <CustomSearchInput/>
+              <CustomSearchInputConnected/>
           </div>
       }
     }

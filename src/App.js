@@ -7,7 +7,7 @@ import {
     CollectionCursorsByNamePage,
     CollectionCursorsByNamePageConnected
 } from "./page/collectioncursorsbynamepage/CollectionCursorsByNamePage";
-import {SearchResultPage} from "./page/searchresultpage/SearchResultPage";
+import {SearchResultPage, SearchResultPageConnected} from "./page/searchresultpage/SearchResultPage";
 import {TermsOfUsePage} from "./page/termsofusepage/TermsOfUsePage";
 import {PrivacyPolicyPage} from "./page/privacypolicypage/PrivacyPolicyPage";
 import {CookiePolicyPage} from "./page/cookiepolicypage/CookiePolicyPage";
@@ -24,7 +24,7 @@ function App() {
             <Route path="/cursor-collection" exact component={CursorCollectionPageCollection}/>
             <Route path="/last-used" exact component={LastUsedPacksPage}/>
             <Route path={"/collection-cursors/:id"} exact component={CollectionCursorsByNamePageConnected}/>
-            <Route path={"/search-result"} exact component={SearchResultPage}/>
+            <Route path={"/search-result/:value"} exact component={SearchResultPageConnected}/>
             <Route path={"/term-of-use"} exact component={TermsOfUsePage}/>
             <Route path={"/privacy-policy"} exact component={PrivacyPolicyPage}/>
             <Route path={"/cookie-policy"} exact component={CookiePolicyPage}/>

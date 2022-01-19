@@ -52,13 +52,13 @@ ul {
     padding: 0 0 0 10px;
 }
 
-a {
+.show-all-href > a {
     color: #006EDD;
     text-decoration:none;
 }
 
-a:hover {
-    text-decoration:  1px;
+.show-all-href > a:hover {
+    text-decoration: underline;
 }
 
 .txt-style-search {

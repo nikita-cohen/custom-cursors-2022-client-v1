@@ -1,11 +1,29 @@
 import "./CustomSearchInput.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
+import {searchCollectionAxios} from "../../redux/action";
+import connect from "react-redux/lib/connect/connect";
 
 export function CustomSearchInput(props) {
 
     const [display, setDisplay] = useState("none")
+    const [value, setValue] = useState("")
     const history = useHistory()
+
+    useEffect(() => {
+        props.searchCollectionAxios(value);
+    },[value])
+
+    const onChangeValue = (event) => {
+        setValue(event.target.value);
+    }
+
+
+    const showResult = () => {
+      if (props.searchResult[0]){
+          return props.searchResult.map(item => <li onClick={() => history.push("/collection-cursors/" + item.id)} className={"txt-style-search"}>{item.title}</li>)
+      }
+    }
 
     const onChangeDisplay = (event) => {
       if (event.target.value === "") {
@@ -37,20 +55,37 @@ export function CustomSearchInput(props) {
           <div className={onDropDownDisplayDiv()}>
               <input onKeyPress={(event) => {
                   if(event.key === 'Enter'){
-                      history.push("/search-result")
+                      history.push("/search-result/"+ value)
                   }
-              }} onChange={(event) => onChangeDisplay(event)} className={onDropDownDisplay()} placeholder="Search" type={"text"}/>
+              }} onChange={(event) =>
+              {
+                  onChangeValue(event)
+                  onChangeDisplay(event)
+              }} className={onDropDownDisplay()} placeholder="Search" type={"text"}/>
           </div>
           <div id={"drop-down"} className={"list-container-input"} style={{display: display}}>
               <ul>
-                  <li className={"txt-style-search"}>Harry Potter Collection</li>
-                  <li className={"txt-style-search"}>Harrison Ford Collection </li>
+                  {showResult()}
               </ul>
               <div className={"show-all-href"}>
-                  <a href={"#"}>Show All (2)</a>
+                  <a onClick={() => history.push("/search-result/"+ value)} href={"#"}>Show All ({props.searchResult.length})</a>
               </div>
 
           </div>
       </div>
     )
 }
+
+const mapStateToProp = (state) => {
+    return {
+        searchResult : state.searchResult
+    };
+};
+
+const mapDispatchActions = () => {
+    return {
+        searchCollectionAxios
+    };
+};
+export const CustomSearchInputConnected = connect(mapStateToProp, mapDispatchActions())(CustomSearchInput);
+
