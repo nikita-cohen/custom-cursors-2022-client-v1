@@ -36,11 +36,32 @@ const searchResultReducer = (currentState = [], action) => {
     }
 };
 
+const userCollectionReducer = (currentState = [], action) => {
+    switch (action.type) {
+        case "USER-COLLECTION/GET" :
+            return action.payload;
+        default:
+            return currentState;
+    }
+};
+
+const userReducer = (currentState = null, action) => {
+    switch (action.type) {
+        case "USER-ID/SAVE" :
+            return action.payload;
+        default:
+            return currentState;
+    }
+};
+
+
 
 export default combineReducers({
     collection: collectionReducer,
     cursors : cursorsReducer,
     searchResult : searchReducer,
-    searchPage : searchResultReducer
+    searchPage : searchResultReducer,
+    userCollection : userCollectionReducer,
+    userId : userReducer
 });
 

@@ -1,34 +1,38 @@
 import {ActionBar} from "../../component/actionbar/ActionBar";
 import "./CursorCollectionPage.css";
 import {CollectionCard} from "../../component/collectioncard/CollectionCard";
-import {GetMoreCursorsButton} from "../../component/getmorecursorsbutton/GetMoreCursorsButton";
 import {Footer} from "../../component/footer/Footer";
 import InnerLayout from "../../component/innerlayout/InnerLayout";
 import {getAllCollection} from "../../redux/action";
 import connect from "react-redux/lib/connect/connect";
 import {useEffect, useState} from "react";
 import {MoreCollectionButton} from "../../component/morecollectionbutton/MoreCollectionButton";
+import {usePromiseTracker} from "react-promise-tracker";
+import { Rings} from 'react-loader-spinner';
 
 
 
 function CursorCollectionPage(props) {
 
     const [numOfCollections, setNumOfCollections] = useState(8);
+    const { promiseInProgress } = usePromiseTracker();
 
     useEffect(() => {
         props.getAllCollection(numOfCollections)
     },[numOfCollections])
 
     const showCards = () => {
-        return props.collectionsCard.map(item =>
-            <div className={"mt-to-collection-card"}>
-                <CollectionCard itemId={item.id} image={item.imageUrl} text={item.title}/>
+        return props.collectionsCard.map((item, index) =>
+            <div key={index} className={"mt-to-collection-card"}>
+                <CollectionCard key={index} itemId={item.id} image={item.imageUrl} text={item.title}/>
             </div>
         );
     }
 
     function getMoreCursors() {
-        setNumOfCollections(numOfCollections + 8);
+        if (numOfCollections < 110){
+            setNumOfCollections(numOfCollections + 8);
+        }
     }
 
 
@@ -48,9 +52,11 @@ function CursorCollectionPage(props) {
                             </div>
                         </div>
                     </div>
-                    <div className={"collections-card-container"}>
-                        {showCards()}
-                    </div>
+                    {promiseInProgress ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
+                        <div className={"collections-card-container"}>
+                            {showCards()}
+                        </div>
+                    }
                     <div className={"btn-margin"}>
                         <MoreCollectionButton moreCursor={getMoreCursors}/>
                     </div>
@@ -76,4 +82,4 @@ const mapDispatchActions = () => {
         getAllCollection
     };
 };
-export const CursorCollectionPageCollection = connect(mapStateToProp, mapDispatchActions())(CursorCollectionPage);
+export const CursorCollectionPageConnected = connect(mapStateToProp, mapDispatchActions())(CursorCollectionPage);

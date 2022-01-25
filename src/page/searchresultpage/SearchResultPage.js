@@ -8,12 +8,16 @@ import {searchCollectionAxios, searchResultCollectionAxios} from "../../redux/ac
 import connect from "react-redux/lib/connect/connect";
 import {CustomSearchInput} from "../../component/customsearchinput/CustomSearchInput";
 import {useEffect} from "react";
+import {Rings} from "react-loader-spinner";
+import {usePromiseTracker} from "react-promise-tracker";
 
 export function SearchResultPage(props) {
 
     useEffect(() => {
         props.searchResultCollectionAxios(props.match.params.value)
     }, [])
+
+    const { promiseInProgress } = usePromiseTracker();
 
     const showCards = () => {
         return props.searchResult.map(item =>
@@ -26,23 +30,25 @@ export function SearchResultPage(props) {
         <div className={"page-search-result-container"}>
             <ActionBar type={"SEARCH"}/>
             <div className={"inner-style-search-page"}>
-                <InnerLayout>
-                    <div className={"txt-container-search-result"}>
-                        <div className={"header-search-container"}>
-                            Searching result
+                {promiseInProgress ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
+                    <InnerLayout>
+                        <div className={"txt-container-search-result"}>
+                            <div className={"header-search-container"}>
+                                Searching result
+                            </div>
+                            <div className={"number-of-result"}>
+                                {props.searchResult.length} results for <strong>"{props.match.params.value}"</strong>
+                            </div>
                         </div>
-                        <div className={"number-of-result"}>
-                            {props.searchResult.length} results for <strong>"{props.match.params.value}"</strong>
+                        <div className={"card-result-container"}>
+                            {showCards()}
                         </div>
-                    </div>
-                    <div className={"card-result-container"}>
-                        {showCards()}
-                    </div>
-                    <div className={"btn-result-container"}>
-                        <ToAllCollectionButton/>
-                    </div>
-                </InnerLayout>
 
+                        <div className={"btn-result-container"}>
+                            <ToAllCollectionButton/>
+                        </div>
+                    </InnerLayout>
+                }
             </div>
         </div>
             <div className={"footer-result-container"}>

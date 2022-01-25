@@ -67,6 +67,7 @@
 .image-collection-cursor-card {
     width: 140px;
     height: 75px;
+    box-sizing: border-box;
 }
 
 .button-container{

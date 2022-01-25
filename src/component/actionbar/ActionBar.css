@@ -17,6 +17,16 @@
     background: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
 }
 
+.pop-up-success{
+    position: fixed;
+    /*display: flex;*/
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 5px;
+    padding-right: 5px;
+    display: none;
+}
+
 .menu-style{
     display: flex;
     height: 52px;

@@ -21,6 +21,7 @@
     background: #9F25FF;
     border: 2px solid #FFFFFF;
     box-shadow: 0 0 8px 0 #00000026;
+    /*display: none;*/
 }
 
 .x-icon {
@@ -51,7 +52,7 @@
 }
 
 .img-success-container{
-    margin-top: 2px;
+    margin-top: 1px;
     margin-left: 5px;
 }
 

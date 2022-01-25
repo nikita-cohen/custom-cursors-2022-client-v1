@@ -1,8 +1,10 @@
 import "./ActionBar.css";
 import InnerLayout from "../innerlayout/InnerLayout";
-import {CustomSearchInput, CustomSearchInputConnected} from "../customsearchinput/CustomSearchInput";
+import {CustomSearchInputConnected} from "../customsearchinput/CustomSearchInput";
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
+import {SuccessPopUp} from "../successpopup/SuccessPopUp";
+
 
 export function ActionBar(props) {
 
@@ -26,8 +28,17 @@ export function ActionBar(props) {
       }
     }
 
+    if (props.addCursor === "flex") {
+        setTimeout(() => {
+            props.changePopUp()
+        }, 5000)
+    }
+
     return(
         <div className="action-bar">
+            <div className={"pop-up-success"} style={{display : props.addCursor}}>
+                <SuccessPopUp closePopUp={props.changePopUp}/>
+            </div>
             <InnerLayout>
                 <div className="menu-style">
                     <div onClick={() => history.push("/cursor-collection")} className="vector-container">

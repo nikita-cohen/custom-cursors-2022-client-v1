@@ -5,7 +5,7 @@ export function InstallNowButton(props) {
         <div className={"install-btn-container"}>
             <div className={"inner-txt-install-container"}>
                 <div className={"img-container-install"}>
-                    <img src={"chrome-install-btn.svg"} alt={"button"}/>
+                    <img src={process.env.PUBLIC_URL + "/chrome-install-btn.svg"} alt={"button"}/>
                 </div>
                 <div className={"txt-container-install"}>
                     INSTALL NOW

@@ -1,5 +1,5 @@
 import "./StopTryingButton.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export function StopTryingButton(props) {
 
@@ -25,14 +25,16 @@ export function StopTryingButton(props) {
         img.src = data;
     });
 
+    useEffect(() => {
+        resizeDataURL(props.cursor, 48, 48, "cursor").then(r => {
+            setCursorUrl(r.data)
+        })
 
-    resizeDataURL(props.cursor, 48, 48, "cursor").then(r => {
-        setCursorUrl(r.data)
-    })
+        resizeDataURL(props.pointer, 48, 48, "cursor").then(r => {
+            setPointerUrl(r.data)
+        })
 
-    resizeDataURL(props.pointer, 48, 48, "cursor").then(r => {
-        setPointerUrl(r.data)
-    })
+    }, [])
 
     props.setPath(cursorUrl, pointerUrl);
 

@@ -57,6 +57,12 @@ ul {
     text-decoration:none;
 }
 
+.spinner-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .show-all-href > a:hover {
     text-decoration: underline;
 }

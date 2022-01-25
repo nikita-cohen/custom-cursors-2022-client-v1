@@ -1,6 +1,7 @@
 import axios from "axios";
 import {CollectionCard} from "../../model/CollectionCard";
 import {Cursor} from "../../model/Cursor";
+import { trackPromise } from 'react-promise-tracker';
 
 export const getCollections = (collections) => {
     return {
@@ -30,9 +31,33 @@ export const searchResultCollection = (collections) => {
     }
 }
 
+export const getUserCollection = (userCollection) => {
+    return {
+        type : "USER-COLLECTION/GET",
+        payload : userCollection
+    }
+}
+
+export const saveUserId = (userId) => {
+    return {
+        type : "USER-ID/SAVE",
+        payload : userId
+    }
+}
+
+export const getUserCollectionAxios = (userId) => async (dispatch) => {
+    try {
+        const userCollection = await trackPromise(axios.get("https://mycustomcursors.online/node/user/collection/" + userId))
+        console.log("user collections from axios", userCollection.data)
+        dispatch(getUserCollection(userCollection.data))
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 export const searchResultCollectionAxios = (collectionName) => async (dispatch) => {
     try {
-        const collections = await axios.get("https://mycustomcursors.online/node/collection/search/" + collectionName)
+        const collections = await trackPromise(axios.get("https://mycustomcursors.online/node/collection/search/" + collectionName))
         const mappedCollections = collections.data
             .map(collection => new CollectionCard(collection._id, collection.name, collection.newImage))
         dispatch(searchResultCollection(mappedCollections))
@@ -54,7 +79,7 @@ export const searchCollectionAxios = (collectionName) => async (dispatch) => {
 
 export const getCollectionCursorsAxios = (id) => async (dispatch) => {
     try {
-        const collection = await axios.get("https://mycustomcursors.online/node/collection/" + id);
+        const collection = await trackPromise(axios.get("https://mycustomcursors.online/node/collection/" + id));
         const cursors = collection.data.items.map(item => new Cursor(item.id, item.name,item.mediumSrc,
             item.cursor.newPath, item.pointer.newPath, collection.data.name, collection.data._id, item.cursor.width, item.cursor.height))
         dispatch(getCollectionCursors(cursors))
@@ -65,11 +90,11 @@ export const getCollectionCursorsAxios = (id) => async (dispatch) => {
 
 export const getAllCollection = (collectionAmount) => async (dispatch) => {
     try {
-        const collections  = await axios.get("https://mycustomcursors.online/node/collection", { params:
+        const collections  = await trackPromise(axios.get("https://mycustomcursors.online/node/collection", { params:
                 {
                     numberOfCollection: collectionAmount
                 }
-        });
+        }));
         const mappedCollections = collections.data
             .map(collection => new CollectionCard(collection._id, collection.name, collection.newImage))
         dispatch(getCollections(mappedCollections))

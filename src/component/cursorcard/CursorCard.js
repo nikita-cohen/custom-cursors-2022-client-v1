@@ -1,7 +1,7 @@
 import "./CursorCard.css";
 import {AddButton} from "../addbutton/AddButton";
 import {StopTryingButton} from "../stoptryingbutoon/StopTryingButton";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export function CursorCard(props) {
 
@@ -64,6 +64,7 @@ export function CursorCard(props) {
         }
     })
 
+
     const getPath = (cursorPath, pointerPath) => {
         setCursor(cursorPath);
         setPointer(pointerPath);
@@ -99,10 +100,10 @@ export function CursorCard(props) {
             </div>
             <div className="button-container">
             <div>
-                <AddButton type="ADD"/>
+                <AddButton addCursor={props.addCursor} cursorId={props.cursorId} type={props.add}/>
             </div>
             <div className="add-button-card">
-                <StopTryingButton trying={props.trying} setPath={getPath} cursor={props.cursor} onTry={onTry} pointer={props.pointer} getPath={props.getPath}  type="try"/>
+                <StopTryingButton trying={props.trying} setPath={getPath} cursor={props.cursor} onTry={onTry} pointer={props.pointer} getPath={props.getPath}  type={"try"}/>
             </div>
             </div>
         </div>

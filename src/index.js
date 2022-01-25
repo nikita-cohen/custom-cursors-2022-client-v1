@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import Provider from "react-redux/lib/components/Provider";
 import {applyMiddleware, createStore} from "redux";
 import reducer from './redux/reducer';
 import thunk from "redux-thunk";
-
+import App from "./App";
+import {composeWithDevTools} from "redux-devtools-extension";
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter forceRefresh={true}>
-          <Provider store={createStore(reducer, applyMiddleware(thunk))}>
+          <Provider store={createStore(reducer,  composeWithDevTools(applyMiddleware(thunk)))}>
             <App/>
           </Provider>
       </BrowserRouter>

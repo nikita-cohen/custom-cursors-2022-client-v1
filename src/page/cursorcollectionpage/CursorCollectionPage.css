@@ -52,6 +52,13 @@
     margin-top: 20px;
 }
 
+.spinner {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (max-width: 1177px) {
  .collections-card-container {
      grid-gap: 101px;
