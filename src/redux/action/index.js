@@ -48,7 +48,6 @@ export const saveUserId = (userId) => {
 export const getUserCollectionAxios = (userId) => async (dispatch) => {
     try {
         const userCollection = await trackPromise(axios.get("https://mycustomcursors.online/node/user/collection/" + userId))
-        console.log("user collections from axios", userCollection.data)
         dispatch(getUserCollection(userCollection.data))
     } catch (e) {
         console.log(e)

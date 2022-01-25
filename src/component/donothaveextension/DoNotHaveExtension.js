@@ -35,7 +35,7 @@ export function DoNotHaveExtension(props) {
                                 How to use
                             </div>
                             <div className={"how-to-use-icon-for-install"}>
-                                <img src={process.env.PUBLIC_URL + "/how-to-use-for-install.svg"} alt={"how to use"}/>
+                                <img onClick={() => history.push("/how-to-use")} src={process.env.PUBLIC_URL + "/how-to-use-for-install.svg"} alt={"how to use"}/>
                             </div>
                         </div>
                     </div>

@@ -22,11 +22,8 @@
 .main-container-not-extension {
     height: 349px;
     width: 870px;
-    left: 205px;
-    top: 103px;
     border-radius: 20px;
     background: #FFFFFF;
-    border: 3px solid #FFFFFF;
     box-shadow: 0 0 8px 0 #00000026;
 }
 
@@ -37,6 +34,7 @@
 .image-right-corner-container {
     display: flex;
     justify-content: flex-end;
+    margin-left: 50px;
 }
 
 .header-txt-install-page {
@@ -73,7 +71,7 @@
 
 .image-left-corner-container {
     display: flex;
-    margin-top: 24px;
+    margin-top: 31px;
 }
 
 .btn-and-txt-container-install {
@@ -85,7 +83,7 @@
 .how-to-use-txt-install {
     display: flex;
     justify-content: center;
-    margin-top: 53px;
+    margin-top: 40px;
 }
 
 .txt-install-style {
@@ -104,11 +102,12 @@
 
 .del {
     position: absolute;
-    margin-right: 15px;
-    margin-top: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
     cursor: pointer;
 }
 
 .how-to-use-icon-for-install {
     margin-left: 8px;
+    cursor: pointer;
 }

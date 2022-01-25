@@ -13,6 +13,10 @@
     cursor: pointer;
 }
 
+.install-btn-container:hover {
+    background: linear-gradient(269.42deg, rgba(0, 110, 221, 0.7) 0%, rgba(0, 69, 133, 0.7) 100%);
+}
+
 .inner-txt-install-container {
     display: flex;
     justify-content: center;

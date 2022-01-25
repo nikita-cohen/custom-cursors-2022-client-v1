@@ -14,7 +14,7 @@ import { Rings} from 'react-loader-spinner';
 
 function CursorCollectionPage(props) {
 
-    const [numOfCollections, setNumOfCollections] = useState(8);
+    const [numOfCollections, setNumOfCollections] = useState(18);
     const { promiseInProgress } = usePromiseTracker();
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function CursorCollectionPage(props) {
 
     function getMoreCursors() {
         if (numOfCollections < 110){
-            setNumOfCollections(numOfCollections + 8);
+            setNumOfCollections(numOfCollections + 18);
         }
     }
 
