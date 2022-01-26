@@ -3,7 +3,10 @@ import {Route} from "react-router-dom";
 import {WelcomePageConnected} from "./page/welcomepage/WelcomePage";
 import {CursorCollectionPageConnected} from "./page/cursorcollectionpage/CursorCollectionPage";
 import {LastUsedPacksPage} from "./page/lastusedpackspage/LastUsedPacksPage";
-import {CollectionCursorsByNamePageConnected} from "./page/collectioncursorsbynamepage/CollectionCursorsByNamePage";
+import {
+    CollectionCursorsByNamePage,
+    CollectionCursorsByNamePageConnected
+} from "./page/collectioncursorsbynamepage/CollectionCursorsByNamePage";
 import {SearchResultPageConnected} from "./page/searchresultpage/SearchResultPage";
 import {TermsOfUsePage} from "./page/termsofusepage/TermsOfUsePage";
 import {PrivacyPolicyPage} from "./page/privacypolicypage/PrivacyPolicyPage";
@@ -12,8 +15,24 @@ import {HowToUsePage} from "./page/howtousepage/HowToUsePage";
 import {PoolPage} from "./page/poolpage/PoolPage";
 import {ThankYouPage} from "./page/thankyoupage/ThankYouPage";
 import {ReinstallPage} from "./page/reinstallpage/ReinstallPage";
+import {useEffect} from "react";
+import { saveUserId} from "./redux/action";
+import connect from "react-redux/lib/connect/connect";
 
 function App(props) {
+
+    useEffect(() => {
+        setTimeout(() => {
+            window.postMessage({ type: "FROM_PAGE", text: "Hello from the webpage!" }, "*");
+        }, 500)
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type && (event.data.type === "FROM_EXTENSION")){
+                props.saveUserId(event.data.user_id_cursors);
+            }
+        })
+    })
+
 
     return (
         <div className={"border-main"}>
@@ -32,5 +51,18 @@ function App(props) {
         </div>
     )
 }
+
+const mapStateToProp = (state) => {
+    return {
+    };
+};
+
+const mapDispatchActions = () => {
+    return {
+        saveUserId
+    };
+};
+
+export const AppConnected = connect(mapStateToProp, mapDispatchActions())(App);
 
 export default App;

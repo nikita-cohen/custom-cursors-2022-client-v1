@@ -7,14 +7,14 @@ import Provider from "react-redux/lib/components/Provider";
 import {applyMiddleware, createStore} from "redux";
 import reducer from './redux/reducer';
 import thunk from "redux-thunk";
-import App from "./App";
+import App, {AppConnected} from "./App";
 import {composeWithDevTools} from "redux-devtools-extension";
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter forceRefresh={true}>
           <Provider store={createStore(reducer,  composeWithDevTools(applyMiddleware(thunk)))}>
-            <App/>
+            <AppConnected/>
           </Provider>
       </BrowserRouter>
   </React.StrictMode>,

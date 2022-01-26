@@ -15,7 +15,7 @@ import axios from "axios";
 
 export function CollectionCursorsByNamePage(props) {
 
-    const [userId, setUserId] = useState("");
+    const [userId, setUserId] = useState(props.userIdWelcome);
     const [tryAddCursor, setTryAddCursor] = useState("none");
     const [tryAddCursorIfNoExtension, setTryAddCursorIfNoExtension] = useState("none");
     const [trying, setTrying] = useState(false)
@@ -23,37 +23,32 @@ export function CollectionCursorsByNamePage(props) {
 
     useEffect(() => {
         props.getCollectionCursorsAxios(props.match.params.id)
-        setTimeout(() => {
-            window.postMessage({ type: "FROM_PAGE", text: "Hello from the webpage!" }, "*");
-        },50)
 
-        window.addEventListener('message', (event) => {
-            if (event.data.type && (event.data.type === "FROM_EXTENSION")){
-                props.getUserCollectionAxios(event.data.user_id_cursors);
-                setUserId(event.data.user_id_cursors)
-            }
-        })
+        if (props.userIdWelcome !== null){
+            props.getUserCollectionAxios(props.userIdWelcome)
+        }
 
         setTimeout(() => {
-            if (userId === "") {
+            if (props.userIdWelcome === null) {
                 setUserId("NO/EXTENSION")
             }
-        },50)
-    },[])
+        }, 2000)
+
+    },[props.userIdWelcome])
 
     const closeInstallCollection = () => {
         setTryAddCursorIfNoExtension("none")
     }
 
     const addCursor = async (cursorID) => {
-      if (userId === "NO/EXTENSION") {
+      if (props.userIdWelcome === null) {
           setTryAddCursorIfNoExtension("flex")
       } else if (userId === "") {
           alert("Something Go Wrong Please Try Again")
       } else {
           const obj =
               {
-                  "userId" : userId,
+                  "userId" : props.userIdWelcome,
                   "collectionId" : props.match.params.id,
                   "cursorId" : cursorID
               };
@@ -79,7 +74,7 @@ export function CollectionCursorsByNamePage(props) {
 
     const showCursors = () => {
         return props.cursors.map((cursor, index) => {
-            let curCursor = userId !== "" && userId !== "NO/EXTENSION" ? props.userCollection?.find(item => item.id === cursor.id ? item : undefined) : false;
+            let curCursor = props.userIdWelcome !== null && props.userIdWelcome !== undefined  ? props.userCollection?.find(item => item.id === cursor.id ? item : undefined) : false;
             if (curCursor) {
                 return <CursorCard key={index} addCursor={addCursor} add="SUCCEED" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
             } else {
@@ -88,7 +83,7 @@ export function CollectionCursorsByNamePage(props) {
         })
     }
 
-    return (promiseInProgress || userId === "" ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
+    return (promiseInProgress || userId === null || userId === undefined ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
         <div className={"body-container-collection-cursors"}>
             <div className={"uninstall"} style={{display : tryAddCursorIfNoExtension}}>
                 <div className={"install-now"}>
@@ -124,7 +119,8 @@ export function CollectionCursorsByNamePage(props) {
 const mapStateToProp = (state) => {
     return {
         cursors : state.cursors,
-        userCollection : state.userCollection
+        userCollection : state.userCollection,
+        userIdWelcome : state.userId
     };
 };
 

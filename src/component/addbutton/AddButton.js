@@ -12,7 +12,6 @@ export function AddButton(props) {
 
     const onClickBtn = async () => {
         const response = await props.addCursor(props.cursorId);
-        console.log(response)
         if (response === "added") {
             setType("SUCCEED")
         }

@@ -1,3 +1,5 @@
+/*global chrome*/
+
 import "./WelcomePage.css";
 import {ActionBar} from "../../component/actionbar/ActionBar";
 import InnerLayout from "../../component/innerlayout/InnerLayout";
@@ -5,7 +7,7 @@ import {SeeAllCollectionButton} from "../../component/seeallcollectionbutton/See
 import {CursorCard} from "../../component/cursorcard/CursorCard";
 import {GetMoreCursorsButton} from "../../component/getmorecursorsbutton/GetMoreCursorsButton";
 import {Footer} from "../../component/footer/Footer";
-import {useEffect, useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
 import {getCollectionCursorsAxios, getUserCollectionAxios} from "../../redux/action";
 import connect from "react-redux/lib/connect/connect";
 import axios from "axios";
@@ -17,32 +19,28 @@ import {Rings} from "react-loader-spinner";
 export function WelcomePage(props) {
 
     const [trying, setTrying] = useState(false)
-    const [userId, setUserId] = useState("");
+    const [userId, setUserId] = useState(props.userIdWelcome);
     const [tryAddCursor, setTryAddCursor] = useState("none");
     const [tryAddCursorIfNoExtension, setTryAddCursorIfNoExtension] = useState("none");
     const { promiseInProgress } = usePromiseTracker();
     const [numOfCollections, setNumOfCollections] = useState(15);
 
-
     useEffect(() => {
         props.getCollectionCursorsAxios("61f0107fdf02797036b0807d")
-        setTimeout(() => {
-            window.postMessage({ type: "FROM_PAGE", text: "Hello from the webpage!" }, "*");
-        },50)
 
-        window.addEventListener('message', (event) => {
-            if (event.data.type && (event.data.type === "FROM_EXTENSION")){
-                props.getUserCollectionAxios(event.data.user_id_cursors);
-                setUserId(event.data.user_id_cursors)
-            }
-        })
+        if (props.userIdWelcome !== null){
+            props.getUserCollectionAxios(props.userIdWelcome)
+        }
 
         setTimeout(() => {
-            if (userId === "") {
+            if (props.userIdWelcome === null) {
                 setUserId("NO/EXTENSION")
             }
-        },50)
-    },[])
+        }, 2000)
+
+    },[props.userIdWelcome]);
+
+
 
     const moreCursors = () => {
         if (numOfCollections < 30) {
@@ -55,14 +53,14 @@ export function WelcomePage(props) {
     }
 
     const addCursor = async (cursorID) => {
-        if (userId === "NO/EXTENSION") {
+        if (props.userIdWelcome === null) {
             setTryAddCursorIfNoExtension("flex")
         } else if (userId === "") {
             alert("Something Go Wrong Please Try Again")
         } else {
             const obj =
                 {
-                    "userId" : userId,
+                    "userId" : props.userIdWelcome,
                     "collectionId" : "61f0107fdf02797036b0807d",
                     "cursorId" : cursorID
                 };
@@ -87,7 +85,7 @@ export function WelcomePage(props) {
 
     const showCursors = () => {
         return props.cursors.slice(0 , numOfCollections).map((cursor, index) => {
-            let curCursor = userId !== "" && userId !== "NO/EXTENSION" ? props.userCollection?.find(item => item.id === cursor.id ? item : undefined) : false;
+            let curCursor = props.userIdWelcome !== null && props.userIdWelcome !== undefined ?  props.userCollection?.find(item => item.id === cursor.id ? item : undefined) : false;
             if (curCursor) {
                 return <CursorCard key={index} addCursor={addCursor} add="SUCCEED" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
             } else {
@@ -96,8 +94,8 @@ export function WelcomePage(props) {
         })
     }
 
-    return (
-        <div className={"body-container"}>
+    return ( promiseInProgress || !userId ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
+            <div className={"body-container"}>
             <div className={"uninstall-welcome"} style={{display : tryAddCursorIfNoExtension}}>
                 <div className={"install-now-welcome"}>
                     <DoNotHaveExtension closePopUp={closeInstallCollection}/>
@@ -161,7 +159,7 @@ export function WelcomePage(props) {
                             </div>
                         </div>
                         <div className={"card-container-second"}>
-                            {promiseInProgress ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> : showCursors()}
+                            {showCursors()}
                         </div>
                         <div className={"more-cursors-btn-container"}>
                             <GetMoreCursorsButton moreCursors={moreCursors}/>
@@ -179,7 +177,8 @@ export function WelcomePage(props) {
 const mapStateToProp = (state) => {
     return {
         cursors : state.cursors,
-        userCollection : state.userCollection
+        userCollection : state.userCollection,
+        userIdWelcome : state.userId
     };
 };
 
