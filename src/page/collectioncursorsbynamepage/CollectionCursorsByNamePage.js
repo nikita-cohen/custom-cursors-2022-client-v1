@@ -18,7 +18,7 @@ export function CollectionCursorsByNamePage(props) {
     const [userId, setUserId] = useState(props.userIdWelcome);
     const [tryAddCursor, setTryAddCursor] = useState("none");
     const [tryAddCursorIfNoExtension, setTryAddCursorIfNoExtension] = useState("none");
-    const [trying, setTrying] = useState(false)
+    const [tryingId, setTryingId] = useState("");
     const { promiseInProgress } = usePromiseTracker();
 
     useEffect(() => {
@@ -66,19 +66,78 @@ export function CollectionCursorsByNamePage(props) {
         setTryAddCursor("none")
     }
 
-    function changeTryingState(state){
-        setTrying(state)
+
+
+    function getStyle(element, property) {
+        return (getComputedStyle(element, null).getPropertyValue(property));
     }
 
+    function changePointer(url) {
+        let styleSheet = document.createElement('style');
+
+        styleSheet.type = 'text/css';
+        styleSheet.rel = 'stylesheet';
+
+        styleSheet.innerHTML =  `a,  button, .pointer-hover {\n  cursor: url('${url}') 0 0, pointer !important;\n        }\n `;
+
+        document.head.appendChild(styleSheet);
+    }
+
+    function changeCursor(url) {
+        let styleSheet = document.createElement('style');
+
+        styleSheet.type = 'text/css';
+        styleSheet.rel = 'stylesheet';
+
+        styleSheet.innerHTML =  `.cursor-hover {\n  cursor: url('${url}') 0 0, default !important;\n        }\n `;
+
+        document.head.appendChild(styleSheet);
+    }
+
+    function disablePointer(){
+        let styleSheet = document.createElement('style');
+
+        styleSheet.type = 'text/css';
+        styleSheet.rel = 'stylesheet';
+
+        styleSheet.innerHTML =  `a, button, .pointer-hover {\n  cursor: pointer !important;\n        }\n `;
+        document.head.appendChild(styleSheet);
+    }
+
+    function disableCursor(){
+        let styleSheet = document.createElement('style');
+
+        styleSheet.type = 'text/css';
+        styleSheet.rel = 'stylesheet';
+
+        styleSheet.innerHTML =  `a, button, .cursor-hover {\n  cursor: default !important;\n        }\n `;
+        document.head.appendChild(styleSheet);
+    }
+
+    document.body.addEventListener('mouseover', event => {
+        let pointer = getStyle(event.target, 'cursor');
+        if (pointer === 'pointer'){
+            event.target.classList.add("pointer-hover");
+        } else if (pointer === "default" || pointer === "auto") {
+            event.target.classList.add("cursor-hover");
+        }
+    })
+
+
+    const getPath = (cursorPath, pointerPath, id) => {
+        changeCursor(cursorPath)
+        changePointer(pointerPath)
+        setTryingId(id);
+    }
 
 
     const showCursors = () => {
         return props.cursors.map((cursor, index) => {
             let curCursor = props.userIdWelcome !== null && props.userIdWelcome !== undefined  ? props.userCollection?.find(item => item.id === cursor.id ? item : undefined) : false;
             if (curCursor) {
-                return <CursorCard key={index} addCursor={addCursor} add="SUCCEED" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
+                return <CursorCard key={index} activeCursor={tryingId} addCursor={addCursor} add="SUCCEED" getPath={getPath} cursorId={cursor.id} cursorName={cursor.name}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
             } else {
-                return <CursorCard key={index} addCursor={addCursor} add="ADD" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
+                return <CursorCard key={index} activeCursor={tryingId}  addCursor={addCursor} add="ADD" getPath={getPath} cursorId={cursor.id} cursorName={cursor.name}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
             }
         })
     }

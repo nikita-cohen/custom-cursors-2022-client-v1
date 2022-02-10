@@ -3,7 +3,6 @@ import {useEffect, useState} from "react";
 
 export function StopTryingButton(props) {
 
-    const [type, setType] = useState(props.type);
     const [cursorUrl, setCursorUrl] = useState("")
     const [pointerUrl, setPointerUrl] = useState("")
 
@@ -36,27 +35,14 @@ export function StopTryingButton(props) {
 
     }, [])
 
-    props.setPath(cursorUrl, pointerUrl);
-
-    const onClickBtn = () => {
-        if (type === "stop"){
-            props.onTry("stop")
-            setType("try")
-        } else if (type === "try"){
-            props.onTry("try")
-            if (props.trying === false){
-                setType("stop")
-            }
-        }
-    }
 
     const btnType = () => {
-        if (type === "stop"){
-            return (<div onClick={onClickBtn} className="stop-trying-btn">
+        if (props.type === "stop"){
+            return (<div onClick={() => props.getPath("", "", null)}  className="stop-trying-btn">
                        <p className="stop-trying-txt">Stop trying</p>
                    </div>)
-        } else if (type === "try"){
-            return (<div onClick={onClickBtn} className="stop-trying-btn" style={{backgroundColor: "#197DE1"}}>
+        } else if (props.type === "try"){
+            return (<div onClick={() => props.getPath(cursorUrl, pointerUrl, props.cursorId)}  className="stop-trying-btn" style={{backgroundColor: "#197DE1"}}>
                        <p className="stop-trying-txt">Try cursor</p>
                    </div>)
         }
