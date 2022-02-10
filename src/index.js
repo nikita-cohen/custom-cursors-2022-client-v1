@@ -7,7 +7,7 @@ import Provider from "react-redux/lib/components/Provider";
 import {applyMiddleware, createStore} from "redux";
 import reducer from './redux/reducer';
 import thunk from "redux-thunk";
-import App, {AppConnected} from "./App";
+import {AppConnected} from "./App";
 import {composeWithDevTools} from "redux-devtools-extension";
 
 ReactDOM.render(

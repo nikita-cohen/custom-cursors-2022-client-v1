@@ -34,7 +34,7 @@ export function ThankYouPage(props) {
                     body : JSON.stringify([[id, "", '', "", "", "", "", email]])
                 }))
         } catch (e) {
-            console.log(e)
+
         }
     }
 

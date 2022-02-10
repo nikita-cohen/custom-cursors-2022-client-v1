@@ -28,9 +28,8 @@ export function SendFeedBackButton(props) {
                     },
                     body : JSON.stringify([[messageObj.id, messageObj.one, messageObj.two, messageObj.three, messageObj.four, messageObj.five, messageObj.text]])
                 }))
-            console.log(response)
         } catch (e) {
-            console.log(e)
+
         }
     }
 

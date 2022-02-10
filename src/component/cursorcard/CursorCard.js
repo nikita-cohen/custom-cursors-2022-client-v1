@@ -1,7 +1,7 @@
 import "./CursorCard.css";
 import {AddButton} from "../addbutton/AddButton";
 import {StopTryingButton} from "../stoptryingbutoon/StopTryingButton";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 export function CursorCard(props) {
 

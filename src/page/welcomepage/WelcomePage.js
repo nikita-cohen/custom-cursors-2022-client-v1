@@ -1,4 +1,3 @@
-/*global chrome*/
 
 import "./WelcomePage.css";
 import {ActionBar} from "../../component/actionbar/ActionBar";
@@ -7,7 +6,7 @@ import {SeeAllCollectionButton} from "../../component/seeallcollectionbutton/See
 import {CursorCard} from "../../component/cursorcard/CursorCard";
 import {GetMoreCursorsButton} from "../../component/getmorecursorsbutton/GetMoreCursorsButton";
 import {Footer} from "../../component/footer/Footer";
-import {useEffect, useLayoutEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {getCollectionCursorsAxios, getUserCollectionAxios} from "../../redux/action";
 import connect from "react-redux/lib/connect/connect";
 import axios from "axios";

@@ -27,7 +27,7 @@ export function CustomSearchInput(props) {
 
     const showResult = () => {
       if (props.searchResult[0]){
-          return props.searchResult.map(item => <li onClick={() => history.push("/collection-cursors/" + item.id)} className={"txt-style-search"}>{item.title}</li>)
+          return props.searchResult.map((item, index) => <li key={index} onClick={() => history.push("/collection-cursors/" + item.id)} className={"txt-style-search"}>{item.title}</li>)
       }
     }
 

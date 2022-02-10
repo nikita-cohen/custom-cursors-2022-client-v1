@@ -2,7 +2,7 @@ import './App.css';
 import {Route} from "react-router-dom";
 import {WelcomePageConnected} from "./page/welcomepage/WelcomePage";
 import {CursorCollectionPageConnected} from "./page/cursorcollectionpage/CursorCollectionPage";
-import {LastUsedPacksPage, LastUsedPacksPageConnected} from "./page/lastusedpackspage/LastUsedPacksPage";
+import {LastUsedPacksPageConnected} from "./page/lastusedpackspage/LastUsedPacksPage";
 import {
     CollectionCursorsByNamePageConnected
 } from "./page/collectioncursorsbynamepage/CollectionCursorsByNamePage";

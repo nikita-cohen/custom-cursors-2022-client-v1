@@ -1,5 +1,4 @@
 import "./CheckBoxForTextAria.css";
-import {useState} from "react";
 
 export function CheckBoxForTextAria(props) {
 

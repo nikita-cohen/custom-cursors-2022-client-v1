@@ -88,9 +88,11 @@ export const getUserCollectionAxios = (userId) => async (dispatch) => {
 export const searchResultCollectionAxios = (collectionName) => async (dispatch) => {
     try {
         const collections = await trackPromise(axios.get("https://mycustomcursors.online/node/collection/search/" + collectionName))
-        const mappedCollections = collections.data
-            .map(collection => new CollectionCard(collection._id, collection.name, collection.newImage))
-        dispatch(searchResultCollection(mappedCollections))
+        if (collections.data?.length > 0){
+            const mappedCollections = collections.data
+                .map(collection => new CollectionCard(collection._id, collection.name, collection.newImage))
+            dispatch(searchResultCollection(mappedCollections))
+        }
     } catch (e) {
         console.log(e)
     }
