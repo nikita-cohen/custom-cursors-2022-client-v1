@@ -2,9 +2,8 @@ import './App.css';
 import {Route} from "react-router-dom";
 import {WelcomePageConnected} from "./page/welcomepage/WelcomePage";
 import {CursorCollectionPageConnected} from "./page/cursorcollectionpage/CursorCollectionPage";
-import {LastUsedPacksPage} from "./page/lastusedpackspage/LastUsedPacksPage";
+import {LastUsedPacksPage, LastUsedPacksPageConnected} from "./page/lastusedpackspage/LastUsedPacksPage";
 import {
-    CollectionCursorsByNamePage,
     CollectionCursorsByNamePageConnected
 } from "./page/collectioncursorsbynamepage/CollectionCursorsByNamePage";
 import {SearchResultPageConnected} from "./page/searchresultpage/SearchResultPage";
@@ -38,7 +37,7 @@ function App(props) {
         <div className={"border-main"}>
             <Route path={"/"} exact component={WelcomePageConnected}/>
             <Route path={"/cursor-collection"} exact component={CursorCollectionPageConnected}/>
-            <Route path={"/last-used"} exact component={LastUsedPacksPage}/>
+            <Route path={"/last-used"} exact component={LastUsedPacksPageConnected}/>
             <Route path={"/collection-cursors/:id"} exact component={CollectionCursorsByNamePageConnected}/>
             <Route path={"/search-result/:value"} exact component={SearchResultPageConnected}/>
             <Route path={"/term-of-use"} exact component={TermsOfUsePage}/>

@@ -22,8 +22,8 @@ export function ActionBar(props) {
                    </div>
                  </div>
       } else if (inputType === "SEARCH") {
-          return <div className={"search-container"}>
-              <CustomSearchInputConnected/>
+          return <div  className={"search-container"}>
+              <CustomSearchInputConnected setInputType={setInputType}/>
           </div>
       }
     }

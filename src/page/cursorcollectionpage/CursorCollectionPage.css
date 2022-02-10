@@ -43,6 +43,32 @@
     margin-top: 40px;
 }
 
+.cursor-collection-page-last-used {
+    height: 380px;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+.your-last-used-packs-txt {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+    color: black;
+    padding-top: 40px;
+}
+
+
+.last-used-card-container-cursor-collection-page {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(260px, 1fr));
+    grid-gap: 8px;
+    justify-content: space-between;
+}
+
 .collections-card-container{
     width: 100%;
     display: grid;
@@ -63,20 +89,47 @@
  .collections-card-container {
      grid-gap: 101px;
  }
+    .last-used-card-container-cursor-collection-page {
+        grid-gap: 101px;
+    }
 }
 
 @media screen and (max-width: 1081px) {
     .collections-card-container {
         grid-gap: 71px;
     }
+    .last-used-card-container-cursor-collection-page {
+        grid-gap: 71px;
+    }
 }
+
+
 
 @media screen and (max-width: 1010px) {
     .collections-card-container {
         grid-gap: 13px;
     }
+    .last-used-card-container-cursor-collection-page {
+        grid-gap: 13px;
+    }
 }
 
+.see-all-style {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    color: #197DE1;
+    cursor: pointer;
+}
+
+
+.see-all-txt-last-used {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
 
 .mt-to-collection-card{
     margin-top: 20px;

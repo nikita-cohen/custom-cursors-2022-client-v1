@@ -51,7 +51,7 @@ export function CustomSearchInput(props) {
 
 
     return(
-      <div className={"custom-search-input-container"}>
+      <div  className={"custom-search-input-container"}>
           <div className={onDropDownDisplayDiv()}>
               <input onKeyPress={(event) => {
                   if(event.key === 'Enter'){

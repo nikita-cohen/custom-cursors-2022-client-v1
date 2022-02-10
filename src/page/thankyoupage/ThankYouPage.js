@@ -4,11 +4,17 @@ import InnerLayout from "../../component/innerlayout/InnerLayout";
 import {SubmitFeedBackButton} from "../../component/submitfeedbackbutton/SubmitFeedBackButton";
 import {useState} from "react";
 import {Footer} from "../../component/footer/Footer";
+import {usePromiseTracker} from "react-promise-tracker";
+import {trackPromise} from "react-promise-tracker";
+import {Rings} from "react-loader-spinner";
 
 export function ThankYouPage(props) {
 
     const [email, setEmail] = useState("");
     const [type, setType] = useState("INACTIVE");
+    const id = new URLSearchParams(props.location.search).get("userId");
+    const { promiseInProgress } = usePromiseTracker();
+    const [buttonClick, setButtonClick] = useState(false);
 
     if (email !== "" && type !== "ACTIVE"){
         setType("ACTIVE")
@@ -17,22 +23,22 @@ export function ThankYouPage(props) {
     }
 
     const handleSubmit = async () => {
+        setButtonClick(true)
         try {
-            const response = await fetch("https://v1.nocodeapi.com/nikita_cohen/google_sheets/oBnqwXbBKzilEghz?tabId=sheet1",
+            const response = await trackPromise(fetch("https://v1.nocodeapi.com/nikita_cohen/google_sheets/oBnqwXbBKzilEghz?tabId=sheet1",
                 {
                     method : "POST",
                     headers : {
                         'Content-Type' : 'application/json'
                     },
-                    body : JSON.stringify([[1, "", '', "", "", "", "", email]])
-                })
-            console.log(response)
+                    body : JSON.stringify([[id, "", '', "", "", "", "", email]])
+                }))
         } catch (e) {
             console.log(e)
         }
     }
 
-    return (
+    return (promiseInProgress || buttonClick === true ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
         <div className={"body-container-thanks-page"}>
         <div>
             <ActionBar type={"IMAGE"}/>

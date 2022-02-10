@@ -38,10 +38,41 @@ export const getUserCollection = (userCollection) => {
     }
 }
 
+export const getUserLastUsedCollection = (userCollection) => {
+    return {
+        type : "USER-LAST-USED-COLLECTION/GET",
+        payload : userCollection
+    }
+}
+
 export const saveUserId = (userId) => {
     return {
         type : "USER-ID/SAVE",
         payload : userId
+    }
+}
+
+const getOneCollection = async (collectionId) => {
+    try {
+        const userCollection = await trackPromise(axios.get("https://mycustomcursors.online/node/collection/" + collectionId))
+        return userCollection.data;
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+export const getUserLastUsedCollectionAxios = (userId) => async (dispatch) => {
+    try {
+        const userCollection = await trackPromise(axios.get("https://mycustomcursors.online/node/user/last-used/" + userId))
+        const mappedCollections = await trackPromise(Promise.all(userCollection.data
+            .map(async collectionId => {
+                const collection = await getOneCollection(collectionId)
+                return new CollectionCard(collection._id, collection.name, collection.newImage)
+            })))
+        console.log(mappedCollections)
+        dispatch(getUserLastUsedCollection(mappedCollections))
+    } catch (e) {
+        console.log(e)
     }
 }
 

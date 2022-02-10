@@ -59,6 +59,12 @@
     }
 }
 
+@media screen and (max-width: 1010px) {
+    .card-container-last-used {
+        grid-gap: 13px;
+    }
+}
+
 .btn-container-last-used{
     display: flex;
     justify-content: center;

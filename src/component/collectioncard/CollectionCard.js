@@ -1,9 +1,12 @@
 import "./CollectionCard.css";
 import {ViewCollectionButton} from "../viewcollectionbutton/ViewCollectionButton";
+import {useHistory} from "react-router-dom";
 
 export function CollectionCard(props) {
+    const history = useHistory();
+
     return (
-        <div className="collection-card-container">
+        <div  onClick={() => history.push(`/collection-cursors/${props.itemId}`)} className="collection-card-container">
             <div className="img-collection-card-container">
                 <img className={"image-size-collection-card"} src={props.image} alt="collection"/>
             </div>

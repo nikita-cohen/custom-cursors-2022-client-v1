@@ -6,11 +6,16 @@ import {TextAriaForPool} from "../../component/textariaforpool/TextAriaForPool";
 import {SendFeedBackButton} from "../../component/sendfeedbackbutton/SendFeedBackButton";
 import {Footer} from "../../component/footer/Footer";
 import {useState} from "react";
+import {usePromiseTracker} from "react-promise-tracker";
+import {Rings} from "react-loader-spinner";
 
 export function PoolPage(props) {
 
     const [changeVisibility, setChangeVisibility] = useState("INACTIVE");
     const [textAriaData, setTextAriaData] = useState("");
+    const id = new URLSearchParams(props.location.search).get("userId");
+    const { promiseInProgress } = usePromiseTracker();
+    const [buttonClick, setButtonClick] = useState(false);
 
 
     const [checkBoxes, setCheckBoxes] = useState([
@@ -45,7 +50,11 @@ export function PoolPage(props) {
         setCheckBoxes(newState);
     }
 
-    return (
+    const setButtonClickSend = () => {
+        setButtonClick(true);
+    }
+
+    return (promiseInProgress || buttonClick === true? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
         <div className={"body-container-pool-page"}>
         <div>
             <ActionBar type={"IMAGE"}/>
@@ -79,7 +88,7 @@ export function PoolPage(props) {
                                 <TextAriaForPool setText={setTextAriaMessage} onClickChange={onClickChangeVisibility}  idC={"6"}/>
                             </div>
                             <div className={"margin-check-box"}>
-                                <SendFeedBackButton data={checkBoxes} textData={textAriaData} type={changeVisibility}/>
+                                <SendFeedBackButton buttonClick={setButtonClickSend} userId={id} data={checkBoxes} textData={textAriaData} type={changeVisibility}/>
                             </div>
                         </div>
                     </div>

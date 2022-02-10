@@ -54,6 +54,15 @@ const userReducer = (currentState = null, action) => {
     }
 };
 
+const userCollectionLastUsedReducer = (currentState = null, action) => {
+    switch (action.type) {
+        case "USER-LAST-USED-COLLECTION/GET" :
+            return action.payload;
+        default:
+            return currentState;
+    }
+};
+
 
 
 export default combineReducers({
@@ -62,6 +71,7 @@ export default combineReducers({
     searchResult : searchReducer,
     searchPage : searchResultReducer,
     userCollection : userCollectionReducer,
-    userId : userReducer
+    userId : userReducer,
+    lastUsed : userCollectionLastUsedReducer
 });
 
