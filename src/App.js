@@ -30,6 +30,8 @@ function App(props) {
                 props.saveUserId(event.data.user_id_cursors);
             }
         })
+
+
     })
 
 

@@ -12,6 +12,12 @@ export function CustomSearchInput(props) {
 
     useEffect(() => {
         props.searchCollectionAxios(value);
+        document.addEventListener("click", (event) => {
+            const searchPanel = event.target.closest(".custom-search-input-container");
+            if (!searchPanel) {
+                setDisplay('none')
+            }
+        })
     },[value])
 
     const onChangeValue = (event) => {
@@ -51,7 +57,7 @@ export function CustomSearchInput(props) {
 
 
     return(
-      <div  className={"custom-search-input-container"}>
+      <div className={"custom-search-input-container"}>
           <div className={onDropDownDisplayDiv()}>
               <input onKeyPress={(event) => {
                   if(event.key === 'Enter'){
@@ -63,7 +69,7 @@ export function CustomSearchInput(props) {
                   onChangeDisplay(event)
               }} className={onDropDownDisplay()} placeholder="Search" type={"text"}/>
           </div>
-          <div id={"drop-down"} className={"list-container-input"} style={{display: display}}>
+          <div  id={"drop-down"} className={"list-container-input"} style={{display: display}}>
               <ul>
                   {showResult()}
               </ul>
