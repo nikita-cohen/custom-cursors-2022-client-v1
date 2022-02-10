@@ -41,23 +41,23 @@ export function ActionBar(props) {
             </div>
             <InnerLayout>
                 <div className="menu-style">
-                    <div onClick={() => history.push("/cursor-collection")} className="vector-container">
+                    <a href={"/cursor-collection"} onClick={() => history.push("/cursor-collection")} className="vector-container">
                         <img src={process.env.PUBLIC_URL + "/vector.svg"} alt="vector"/>
                         <div className="logo-txt-container">
                             <div className="logo-txt">
                                 Custom Cursors
                             </div>
                         </div>
-                    </div>
+                    </a>
                     {changeInputType()}
-                    <div onClick={() => history.push("/how-to-use")} className="how-to-use-container">
+                    <a href={"/how-to-use"} onClick={() => history.push("/how-to-use")} className="how-to-use-container">
                         <div className="how-to-use-txt">
                             How to use
                         </div>
                         <div className="how-to-use-img-container">
                             <img src={process.env.PUBLIC_URL + "/how-to-use.svg"} alt="how to use "/>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </InnerLayout>
         </div>

@@ -15,6 +15,7 @@
     align-items: center;
     cursor: default;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 .see-all-container:hover{

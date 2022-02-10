@@ -14,6 +14,7 @@
     border-radius: 10px;
     background: linear-gradient(269.42deg, #006EDD 0%, #004585 100%);
     cursor: pointer;
+    text-decoration: none;
 }
 
 .inner-txt{

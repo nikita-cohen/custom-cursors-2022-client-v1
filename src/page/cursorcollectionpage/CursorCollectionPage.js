@@ -87,7 +87,7 @@ function CursorCollectionPage(props) {
     }
 
 
-    return (promiseInProgress || !showContent ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
+    return (
         <div className={"body-collection-page-container"}>
             <div className={"main-cursor-collection-container"}>
                 <ActionBar type={"IMAGE"}/>
@@ -110,7 +110,7 @@ function CursorCollectionPage(props) {
                                 {showCards()}
                         </div>
                         <div className={"btn-margin"}>
-                            <MoreCollectionButton moreCursor={getMoreCursors}/>
+                            {promiseInProgress || !showContent ? <div className={"spinner-button"}><Rings color={"#006EDD"}/></div> : <MoreCollectionButton moreCursor={getMoreCursors}/>}
                         </div>
                     </InnerLayout>
 
