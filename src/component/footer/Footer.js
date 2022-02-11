@@ -1,5 +1,5 @@
 import "./Footer.css";
-import InnerLayout from "../innerlayout/InnerLayout";
+import InnerLayout from "../inner-layout/InnerLayout";
 import {useHistory} from "react-router-dom";
 
 export function Footer(props) {

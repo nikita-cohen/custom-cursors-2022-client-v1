@@ -1,19 +1,19 @@
 import './App.css';
 import {Route} from "react-router-dom";
-import {WelcomePageConnected} from "./page/welcomepage/WelcomePage";
-import {CursorCollectionPageConnected} from "./page/cursorcollectionpage/CursorCollectionPage";
-import {LastUsedPacksPageConnected} from "./page/lastusedpackspage/LastUsedPacksPage";
+import {WelcomePageConnected} from "./page/welcome-page/WelcomePage";
+import {CursorCollectionPageConnected} from "./page/cursor-collection-page/CursorCollectionPage";
+import {LastUsedPacksPageConnected} from "./page/last-used-packs-page/LastUsedPacksPage";
 import {
     CollectionCursorsByNamePageConnected
-} from "./page/collectioncursorsbynamepage/CollectionCursorsByNamePage";
-import {SearchResultPageConnected} from "./page/searchresultpage/SearchResultPage";
-import {TermsOfUsePage} from "./page/termsofusepage/TermsOfUsePage";
-import {PrivacyPolicyPage} from "./page/privacypolicypage/PrivacyPolicyPage";
-import {CookiePolicyPage} from "./page/cookiepolicypage/CookiePolicyPage";
-import {HowToUsePage} from "./page/howtousepage/HowToUsePage";
-import {PoolPage} from "./page/poolpage/PoolPage";
-import {ThankYouPage} from "./page/thankyoupage/ThankYouPage";
-import {ReinstallPage} from "./page/reinstallpage/ReinstallPage";
+} from "./page/collection-cursors-by-name-page/CollectionCursorsByNamePage";
+import {SearchResultPageConnected} from "./page/search-result-page/SearchResultPage";
+import {TermsOfUsePage} from "./page/terms-of-use-page/TermsOfUsePage";
+import {PrivacyPolicyPage} from "./page/privacy-policy-page/PrivacyPolicyPage";
+import {CookiePolicyPage} from "./page/cookie-policy-page/CookiePolicyPage";
+import {HowToUsePage} from "./page/how-to-use-page/HowToUsePage";
+import {PoolPage} from "./page/pool-page/PoolPage";
+import {ThankYouPage} from "./page/thank-you-page/ThankYouPage";
+import {ReinstallPage} from "./page/reinstall-page/ReinstallPage";
 import {useEffect} from "react";
 import { saveUserId} from "./redux/action";
 import connect from "react-redux/lib/connect/connect";
