@@ -24,7 +24,7 @@ export function LastUsedPacksPage(props) {
 
 
     const showCardsLastUsed = () => {
-        return props.lastUsed?.map((item, index) => {
+        return Array.from(props.lastUsed)?.reverse().map((item, index) => {
                 return <div key={index} className={"mt-to-collection-card"}>
                     <CollectionCard key={index} itemId={item.id} image={item.imageUrl} text={item.title}/>
                 </div>

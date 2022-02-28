@@ -16,7 +16,7 @@
     align-items: center;
     flex-direction: column;
     text-decoration: none;
-    cursor: default;
+    cursor: pointer;
 }
 
 .img-collection-card-container{

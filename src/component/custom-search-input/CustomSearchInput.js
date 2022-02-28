@@ -55,12 +55,20 @@ export function CustomSearchInput(props) {
         }
     }
 
+    const showATagResult = () => {
+        if (props.searchResult.length > 0) {
+           return <a onClick={() => history.push("/search-result/"+ value)} href={"#"}>{`Show All (${props.searchResult.length})`}</a>
+        } else {
+            return <div className={'nothing-found'}>Nothing Found</div>
+        }
+    }
+
 
     return(
       <div className={"custom-search-input-container"}>
           <div className={onDropDownDisplayDiv()}>
               <input onKeyPress={(event) => {
-                  if(event.key === 'Enter'){
+                  if(event.key === 'Enter' && props.searchResult.length > 0){
                       history.push("/search-result/"+ value)
                   }
               }} onChange={(event) =>
@@ -74,7 +82,7 @@ export function CustomSearchInput(props) {
                   {showResult()}
               </ul>
               <div className={"show-all-href"}>
-                  <a onClick={() => history.push("/search-result/"+ value)} href={"#"}>Show All ({props.searchResult.length})</a>
+                  {showATagResult()}
               </div>
 
           </div>

@@ -50,7 +50,7 @@ function CursorCollectionPage(props) {
 
 
     const showCardsLastUsed = () => {
-        return props.lastUsed?.map((item, index) => {
+        return Array.from(props.lastUsed)?.reverse().map((item, index) => {
                 if (index < numberOfLastUsed) {
                     return <div key={index} className={"mt-to-collection-card"}>
                         <CollectionCard key={index} itemId={item.id} image={item.imageUrl} text={item.title}/>
@@ -59,6 +59,14 @@ function CursorCollectionPage(props) {
                 return "";
             }
         );
+    }
+
+    const showSeeAllButton = () => {
+        if (props.lastUsed?.length > 4) {
+            return <a href={'#'} onClick={() => history.push('/last-used')} className={"see-all-style"}>
+                See All
+            </a>
+        }
     }
 
     const showLastUsedIfExist = () => {
@@ -70,9 +78,7 @@ function CursorCollectionPage(props) {
                         {showCardsLastUsed()}
                     </div>
                     <div className={"see-all-txt-last-used"}>
-                        <div onClick={() => history.push('/last-used')} className={"see-all-style"}>
-                            See All
-                        </div>
+                        {showSeeAllButton()}
                     </div>
                 </InnerLayout>
             </div>

@@ -7,6 +7,7 @@ import {Footer} from "../../component/footer/Footer";
 import {usePromiseTracker} from "react-promise-tracker";
 import {trackPromise} from "react-promise-tracker";
 import {Rings} from "react-loader-spinner";
+import validator from 'validator';
 
 export function ThankYouPage(props) {
 
@@ -15,6 +16,8 @@ export function ThankYouPage(props) {
     const id = new URLSearchParams(props.location.search).get("userId");
     const { promiseInProgress } = usePromiseTracker();
     const [buttonClick, setButtonClick] = useState(false);
+    const [borderColor, setBorderColor] = useState("black solid 1px")
+    const [display, setDisplay] = useState("none")
 
     if (email !== "" && type !== "ACTIVE"){
         setType("ACTIVE")
@@ -23,19 +26,25 @@ export function ThankYouPage(props) {
     }
 
     const handleSubmit = async () => {
-        setButtonClick(true)
-        try {
-            const response = await trackPromise(fetch("https://v1.nocodeapi.com/nikita_cohen/google_sheets/oBnqwXbBKzilEghz?tabId=sheet1",
-                {
-                    method : "POST",
-                    headers : {
-                        'Content-Type' : 'application/json'
-                    },
-                    body : JSON.stringify([[id, "", '', "", "", "", "", email]])
-                }))
-        } catch (e) {
+        if (validator.isEmail(email)){
+            setButtonClick(true)
+            try {
+                const response = await trackPromise(fetch("https://v1.nocodeapi.com/nikita_cohen/google_sheets/oBnqwXbBKzilEghz?tabId=sheet1",
+                    {
+                        method : "POST",
+                        headers : {
+                            'Content-Type' : 'application/json'
+                        },
+                        body : JSON.stringify([[id, "", '', "", "", "", "", email]])
+                    }))
+            } catch (e) {
 
+            }
+        } else {
+            setBorderColor("#FF0000 solid 1px")
+            setDisplay("block")
         }
+
     }
 
     return (promiseInProgress || buttonClick === true ? <div className={"spinner"}><Rings color={"#006EDD"}/></div> :
@@ -60,10 +69,23 @@ export function ThankYouPage(props) {
                             </div>
                         </div>
                         <div className={"input-thank-you-container"}>
-                            <input onChange={(event) => {setEmail(event.target.value)}} placeholder={"Please write your email here"} className={"input-thank-you"}/>
+                            <input style={{border : borderColor}} onChange={(event) => {
+                                if (borderColor === "#FF0000 solid 1px" || display === "block") {
+                                    setBorderColor("black solid 1px")
+                                    setDisplay("none")
+                                }
+                                setEmail(event.target.value)
+                            }} onFocus={() => {
+                                if (display === "block") {
+                                    setDisplay("none")
+                                }
+                            }} placeholder={"Please write your email here"} className={"input-thank-you"}/>
+                            <div style={{display : display}} className={"email-not-success"}>
+                                Request field
+                            </div>
                         </div>
                         <div className={"btn-holder-submit-feed"}>
-                            <SubmitFeedBackButton handleSubmit={handleSubmit} type={type} />
+                            <SubmitFeedBackButton isTheEmailCorrect={validator.isEmail(email)} handleSubmit={handleSubmit} type={type} />
                         </div>
                     </div>
                 </InnerLayout>

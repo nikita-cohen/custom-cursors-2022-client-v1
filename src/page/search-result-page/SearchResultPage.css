@@ -54,6 +54,16 @@
     margin-top: 20px;
 }
 
+.card-result-container-flex {
+    width: 100%;
+    display: flex;
+    grid-template-columns: repeat(auto-fit , minmax(260px, 1fr));
+    grid-gap: 8px;
+
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
 .card-result-container {
     width: 100%;
     display: grid;
@@ -89,5 +99,5 @@
 }
 
 .footer-result-container {
-    margin-top: 137px;
+    margin-top: 50px;
 }

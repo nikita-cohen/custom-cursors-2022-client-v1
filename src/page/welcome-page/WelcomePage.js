@@ -22,7 +22,6 @@ export function WelcomePage(props) {
     const [tryAddCursor, setTryAddCursor] = useState("none");
     const [tryAddCursorIfNoExtension, setTryAddCursorIfNoExtension] = useState("none");
     const { promiseInProgress } = usePromiseTracker();
-    const [numOfCollections, setNumOfCollections] = useState(15);
     const [tryingId, setTryingId] = useState("");
 
     useEffect(() => {
@@ -76,18 +75,18 @@ export function WelcomePage(props) {
         }
     })
 
-    const getPath = (cursorPath, pointerPath, id) => {
+    const getPath = (cursorPath, pointerPath, id, type) => {
+        if (type !== "stop") {
+            if (props.userIdWelcome === null) {
+                setTryAddCursorIfNoExtension("flex")
+            }
+        }
         changeCursor(cursorPath)
         changePointer(pointerPath)
         setTryingId(id);
     }
 
 
-    const moreCursors = () => {
-        if (numOfCollections < 30) {
-            setNumOfCollections(numOfCollections + 15)
-        }
-    }
 
     const closeInstallCollection = () => {
         setTryAddCursorIfNoExtension("none")
@@ -125,7 +124,7 @@ export function WelcomePage(props) {
 
 
     const showCursors = () => {
-        return props.cursors.slice(0 , numOfCollections).map((cursor, index) => {
+        return props.cursors.map((cursor, index) => {
             let curCursor = props.userIdWelcome !== null && props.userIdWelcome !== undefined ?  props.userCollection?.find(item => item.id === cursor.id ? item : undefined) : false;
             if (curCursor) {
                 return <CursorCard key={index} activeCursor={tryingId} getPath={getPath} addCursor={addCursor} add="SUCCEED" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
@@ -203,7 +202,7 @@ export function WelcomePage(props) {
                             {showCursors()}
                         </div>
                         <div className={"more-cursors-btn-container"}>
-                            <GetMoreCursorsButton moreCursors={moreCursors}/>
+                            <GetMoreCursorsButton />
                         </div>
                     </InnerLayout>
                 </div>

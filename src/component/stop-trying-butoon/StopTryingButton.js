@@ -38,11 +38,11 @@ export function StopTryingButton(props) {
 
     const btnType = () => {
         if (props.type === "stop"){
-            return (<div onClick={() => props.getPath("", "", null)}  className="stop-trying-btn">
+            return (<div onClick={() => props.getPath("", "", null, "stop")}  className="stop-trying-btn">
                        <p className="stop-trying-txt">Stop trying</p>
                    </div>)
         } else if (props.type === "try"){
-            return (<div onClick={() => props.getPath(cursorUrl, pointerUrl, props.cursorId)}  className="stop-trying-btn" style={{backgroundColor: "#197DE1"}}>
+            return (<div onClick={() => props.getPath(cursorUrl, pointerUrl, props.cursorId, "try")}  className="stop-trying-btn" style={{backgroundColor: "#197DE1"}}>
                        <p className="stop-trying-txt">Try cursor</p>
                    </div>)
         }

@@ -106,7 +106,12 @@ export function CollectionCursorsByNamePage(props) {
     })
 
 
-    const getPath = (cursorPath, pointerPath, id) => {
+    const getPath = (cursorPath, pointerPath, id ,type) => {
+        if (type !== "stop") {
+            if (props.userIdWelcome === null) {
+                setTryAddCursorIfNoExtension("flex")
+            }
+        }
         changeCursor(cursorPath)
         changePointer(pointerPath)
         setTryingId(id);

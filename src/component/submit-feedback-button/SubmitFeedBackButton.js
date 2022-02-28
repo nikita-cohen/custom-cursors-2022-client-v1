@@ -17,7 +17,10 @@ export function SubmitFeedBackButton(props) {
       } else if (props.type === "ACTIVE") {
           return <div onClick={async () =>{
               await props.handleSubmit()
-              history.push("/pool-reinstall")}} className={"active-btn-submit-feed-back"}>
+              if (props.isTheEmailCorrect === true) {
+                  history.push("/pool-reinstall")
+              }
+              }} className={"active-btn-submit-feed-back"}>
               <div className={"txt-container-submit-feed-back"}>
                   Submit
               </div>

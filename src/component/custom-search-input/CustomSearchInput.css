@@ -47,6 +47,28 @@
 
 }
 
+.nothing-found {
+    text-decoration: none;
+    cursor: default;
+    color: #ADADAD;
+}
+
+.nothing-found:hover {
+    text-decoration: none;
+}
+
+.show-all-href > .nothing-found {
+    color: #ADADAD;
+    text-decoration:none;
+    cursor: default;
+}
+
+.show-all-href > .nothing-found:hover {
+    color: #ADADAD;
+    text-decoration:none;
+    cursor: default;
+}
+
 ul {
     list-style-type: none;
     padding: 0 0 0 10px;

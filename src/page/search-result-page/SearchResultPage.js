@@ -6,7 +6,7 @@ import {ToAllCollectionButton} from "../../component/to-all-collections-button/T
 import {Footer} from "../../component/footer/Footer";
 import {searchResultCollectionAxios} from "../../redux/action";
 import connect from "react-redux/lib/connect/connect";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {Rings} from "react-loader-spinner";
 import {usePromiseTracker} from "react-promise-tracker";
 
@@ -14,6 +14,7 @@ export function SearchResultPage(props) {
 
     useEffect(() => {
         props.searchResultCollectionAxios(props.match.params.value)
+
     }, [])
 
     const { promiseInProgress } = usePromiseTracker();
@@ -24,6 +25,16 @@ export function SearchResultPage(props) {
         );
     }
 
+
+    const getContainerClass = () => {
+        if (props.searchResult.length <= 3) {
+            return "card-result-container-flex";
+        } else {
+            return "card-result-container"
+        }
+    }
+
+
     return (
         <div className={"body-container-search-page"}>
         <div className={"page-search-result-container"}>
@@ -33,14 +44,16 @@ export function SearchResultPage(props) {
                     <InnerLayout>
                         <div className={"txt-container-search-result"}>
                             <div className={"header-search-container"}>
-                                Searching result
+                                SEARCHING RESULT
                             </div>
                             <div className={"number-of-result"}>
                                 {props.searchResult.length} results for <strong>"{props.match.params.value}"</strong>
                             </div>
                         </div>
-                        <div className={"card-result-container"}>
-                            {showCards()}
+                        <div  className={getContainerClass()}>
+                            {
+                                showCards()
+                            }
                         </div>
 
                         <div className={"btn-result-container"}>
