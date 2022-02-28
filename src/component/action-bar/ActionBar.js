@@ -42,7 +42,7 @@ export function ActionBar(props) {
             <InnerLayout>
                 <div className="menu-style">
                     <a href={"/cursor-collection"} onClick={() => history.push("/cursor-collection")} className="vector-container">
-                        <img src={process.env.PUBLIC_URL + "/vector.svg"} alt="vector"/>
+                        <img className={"logo-img-vector"} src={process.env.PUBLIC_URL + "/vector.svg"} alt="vector"/>
                         <div className="logo-txt-container">
                             <div className="logo-txt">
                                 Custom Cursors

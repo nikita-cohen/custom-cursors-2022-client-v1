@@ -35,6 +35,11 @@ export function StopTryingButton(props) {
 
     }, [])
 
+    function checkIfOnClickEnable () {
+        if (props.ifAdd === "ADD" && !props.setAdded) {
+            props.getPath(cursorUrl, pointerUrl, props.cursorId, "try")
+        }
+    }
 
     const btnType = () => {
         if (props.type === "stop"){
@@ -42,7 +47,7 @@ export function StopTryingButton(props) {
                        <p className="stop-trying-txt">Stop trying</p>
                    </div>)
         } else if (props.type === "try"){
-            return (<div onClick={() => props.getPath(cursorUrl, pointerUrl, props.cursorId, "try")}  className="stop-trying-btn" style={{backgroundColor: "#197DE1"}}>
+            return (<div onClick={() => checkIfOnClickEnable()}  className="stop-trying-btn" style={{backgroundColor: "#197DE1"}}>
                        <p className="stop-trying-txt">Try cursor</p>
                    </div>)
         }

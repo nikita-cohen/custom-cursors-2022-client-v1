@@ -13,6 +13,7 @@ export function AddButton(props) {
     const onClickBtn = async () => {
         const response = await props.addCursor(props.cursorId);
         if (response === "added") {
+            props.setAdd(true)
             setType("SUCCEED")
             setTimeout(() => {
                 window.postMessage({ type: "FROM_ADD_CURSOR", text: "Hello from the webpage!" }, "*");

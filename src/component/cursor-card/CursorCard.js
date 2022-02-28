@@ -5,10 +5,14 @@ import {useEffect, useState} from "react";
 
 export function CursorCard(props) {
     const [isActive, setIsActive] = useState(props.cursorId === props.activeCursor);
+    const [isAdded, setIsAdded] = useState(false);
 
     useEffect(() => {
         setIsActive(props.cursorId === props.activeCursor)
-    },[props.activeCursor])
+        if (props.add !== "ADD") {
+            setIsAdded(true);
+        }
+    },[props.activeCursor, props.add])
 
     return (
         <div className="card-container">
@@ -22,10 +26,10 @@ export function CursorCard(props) {
             </div>
             <div className="button-container">
                 <div>
-                    <AddButton addCursor={props.addCursor} cursorId={props.cursorId} type={props.add}/>
+                    <AddButton setAdd={setIsAdded} addCursor={props.addCursor} cursorId={props.cursorId} type={props.add}/>
                 </div>
                 <div className="add-button-card">
-                    <StopTryingButton cursorId={props.cursorId} cursor={props.cursor} pointer={props.pointer}
+                    <StopTryingButton setAdded={isAdded} ifAdd={props.add} cursorId={props.cursorId} cursor={props.cursor} pointer={props.pointer}
                                       getPath={props.getPath} type={isActive? "stop" : "try"}/>
                 </div>
             </div>
