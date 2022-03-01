@@ -39,6 +39,13 @@ export function WelcomePage(props) {
 
     },[props.userIdWelcome]);
 
+    useEffect(() => {
+        return () => {
+            changeCursor("")
+            changePointer("")
+        };
+    }, []);
+
 
     function getStyle(element, property) {
         return (getComputedStyle(element, null).getPropertyValue(property));

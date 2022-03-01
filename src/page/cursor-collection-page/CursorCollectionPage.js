@@ -3,7 +3,7 @@ import "./CursorCollectionPage.css";
 import {CollectionCard} from "../../component/collection-card/CollectionCard";
 import {Footer} from "../../component/footer/Footer";
 import InnerLayout from "../../component/inner-layout/InnerLayout";
-import {getAllCollection, getUserLastUsedCollectionAxios} from "../../redux/action";
+import {getAllCollection, getUserCollectionAxios, getUserLastUsedCollectionAxios} from "../../redux/action";
 import connect from "react-redux/lib/connect/connect";
 import {useEffect, useState} from "react";
 import {MoreCollectionButton} from "../../component/more-collection-button/MoreCollectionButton";
@@ -23,6 +23,7 @@ function CursorCollectionPage(props) {
     useEffect(() => {
         props.getAllCollection(numOfCollections)
         props.getUserLastUsedCollectionAxios(props.userIdWelcome)
+        props.getUserCollectionAxios(props.userIdWelcome)
         if (window.innerWidth > 1178) {
             setNumberOfLastUsed(4);
         }
@@ -50,7 +51,14 @@ function CursorCollectionPage(props) {
 
 
     const showCardsLastUsed = () => {
-        return Array.from(props.lastUsed)?.reverse().map((item, index) => {
+        const lastCursorId = props.userCollection[props.userCollection.length - 1]?.collectionId;
+        const newArray = Array.from(props.lastUsed);
+        const index = newArray.findIndex(last => last.id === lastCursorId);
+        const oldObj = newArray[index];
+        newArray.splice(index, 1);
+        newArray.push(oldObj)
+        console.log(oldObj)
+        return newArray.reverse().map((item, index) => {
                 if (index < numberOfLastUsed) {
                     return <div key={index} className={"mt-to-collection-card"}>
                         <CollectionCard key={index} itemId={item.id} image={item.imageUrl} text={item.title}/>
@@ -133,14 +141,16 @@ const mapStateToProp = (state) => {
     return {
         collectionsCard: state.collection,
         lastUsed: state.lastUsed,
-        userIdWelcome: state.userId
+        userIdWelcome: state.userId,
+        userCollection : state.userCollection
     };
 };
 
 const mapDispatchActions = () => {
     return {
         getAllCollection,
-        getUserLastUsedCollectionAxios
+        getUserLastUsedCollectionAxios,
+        getUserCollectionAxios
     };
 };
 export const CursorCollectionPageConnected = connect(mapStateToProp, mapDispatchActions())(CursorCollectionPage);

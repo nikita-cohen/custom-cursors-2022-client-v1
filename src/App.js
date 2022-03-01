@@ -1,5 +1,5 @@
 import './App.css';
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import {WelcomePageConnected} from "./page/welcome-page/WelcomePage";
 import {CursorCollectionPageConnected} from "./page/cursor-collection-page/CursorCollectionPage";
 import {LastUsedPacksPageConnected} from "./page/last-used-packs-page/LastUsedPacksPage";
@@ -35,18 +35,21 @@ function App(props) {
 
     return (
         <div className={"border-main"}>
-            <Route path={"/"} exact component={WelcomePageConnected}/>
-            <Route path={"/cursor-collection"} exact component={CursorCollectionPageConnected}/>
-            <Route path={"/last-used"} exact component={LastUsedPacksPageConnected}/>
-            <Route path={"/collection-cursors/:id"} exact component={CollectionCursorsByNamePageConnected}/>
-            <Route path={"/search-result/:value"} exact component={SearchResultPageConnected}/>
-            <Route path={"/term-of-use"} exact component={TermsOfUsePage}/>
-            <Route path={"/privacy-policy"} exact component={PrivacyPolicyPage}/>
-            <Route path={"/cookie-policy"} exact component={CookiePolicyPage}/>
-            <Route path={"/how-to-use"} exact component={HowToUsePage}/>
-            <Route path={"/pool"} exact component={PoolPage}/>
-            <Route path={"/pool-thank-you"} exact component={ThankYouPage}/>
-            <Route path={"/pool-reinstall"} exact component={ReinstallPage}/>
+            <Switch>
+                <Route path="/" exact component={WelcomePageConnected}/>
+                <Route path={"/cursor-collection"} exact component={CursorCollectionPageConnected}/>
+                <Route path={"/last-used"} exact component={LastUsedPacksPageConnected}/>
+                <Route path={"/collection-cursors/:id"} exact component={CollectionCursorsByNamePageConnected}/>
+                <Route path={"/search-result/:value"} exact component={SearchResultPageConnected}/>
+                <Route path={"/term-of-use"} exact component={TermsOfUsePage}/>
+                <Route path={"/privacy-policy"} exact component={PrivacyPolicyPage}/>
+                <Route path={"/cookie-policy"} exact component={CookiePolicyPage}/>
+                <Route path={"/how-to-use"} exact component={HowToUsePage}/>
+                <Route path={"/pool"} exact component={PoolPage}/>
+                <Route path={"/pool-thank-you"} exact component={ThankYouPage}/>
+                <Route path={"/pool-reinstall"} exact component={ReinstallPage}/>
+            </Switch>
+
         </div>
     )
 }

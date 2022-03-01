@@ -5,6 +5,7 @@ export function StopTryingButton(props) {
 
     const [cursorUrl, setCursorUrl] = useState("")
     const [pointerUrl, setPointerUrl] = useState("")
+    const [isCursor, setIsCursor] = useState("pointer")
 
 
     const resizeDataURL = (data, wantedWidth, wantedHeight, type) => new Promise(function (resolve, reject) {
@@ -33,10 +34,15 @@ export function StopTryingButton(props) {
             setPointerUrl(r.data)
         })
 
-    }, [])
+        if (props.setAdded) {
+            setIsCursor('default')
+        }
+
+    }, [props.setAdded])
 
     function checkIfOnClickEnable () {
         if (props.ifAdd === "ADD" && !props.setAdded) {
+            setIsCursor('pointer')
             props.getPath(cursorUrl, pointerUrl, props.cursorId, "try")
         }
     }
@@ -47,7 +53,7 @@ export function StopTryingButton(props) {
                        <p className="stop-trying-txt">Stop trying</p>
                    </div>)
         } else if (props.type === "try"){
-            return (<div onClick={() => checkIfOnClickEnable()}  className="stop-trying-btn" style={{backgroundColor: "#197DE1"}}>
+            return (<div onClick={() => checkIfOnClickEnable()}   className="stop-trying-btn" style={{backgroundColor: "#197DE1", cursor : isCursor}}>
                        <p className="stop-trying-txt">Try cursor</p>
                    </div>)
         }

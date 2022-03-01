@@ -36,6 +36,13 @@ export function CollectionCursorsByNamePage(props) {
 
     },[props.userIdWelcome])
 
+    useEffect(() => {
+        return () => {
+            changeCursor("")
+            changePointer("")
+        };
+    }, []);
+
     const closeInstallCollection = () => {
         setTryAddCursorIfNoExtension("none")
     }
@@ -173,7 +180,7 @@ const mapStateToProp = (state) => {
 const mapDispatchActions = () => {
     return {
         getCollectionCursorsAxios,
-        getUserCollectionAxios,
+        getUserCollectionAxios
     };
 };
 export const CollectionCursorsByNamePageConnected = connect(mapStateToProp, mapDispatchActions())(CollectionCursorsByNamePage);

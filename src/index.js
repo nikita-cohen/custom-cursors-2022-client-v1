@@ -12,7 +12,7 @@ import {composeWithDevTools} from "redux-devtools-extension";
 
 ReactDOM.render(
   <React.StrictMode>
-      <BrowserRouter forceRefresh={true}>
+      <BrowserRouter>
           <Provider store={createStore(reducer,  composeWithDevTools(applyMiddleware(thunk)))}>
             <AppConnected/>
           </Provider>

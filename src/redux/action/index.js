@@ -69,7 +69,6 @@ export const getUserLastUsedCollectionAxios = (userId) => async (dispatch) => {
                 const collection = await getOneCollection(collectionId)
                 return new CollectionCard(collection._id, collection.name, collection.newImage)
             })))
-        console.log(mappedCollections)
         dispatch(getUserLastUsedCollection(mappedCollections))
     } catch (e) {
         console.log(e)
