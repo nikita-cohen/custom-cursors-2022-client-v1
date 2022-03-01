@@ -51,14 +51,7 @@ function CursorCollectionPage(props) {
 
 
     const showCardsLastUsed = () => {
-        const lastCursorId = props.userCollection[props.userCollection.length - 1]?.collectionId;
-        const newArray = Array.from(props.lastUsed);
-        const index = newArray.findIndex(last => last.id === lastCursorId);
-        const oldObj = newArray[index];
-        newArray.splice(index, 1);
-        newArray.push(oldObj)
-        console.log(oldObj)
-        return newArray.reverse().map((item, index) => {
+        return Array.from(props.lastUsed).reverse().map((item, index) => {
                 if (index < numberOfLastUsed) {
                     return <div key={index} className={"mt-to-collection-card"}>
                         <CollectionCard key={index} itemId={item.id} image={item.imageUrl} text={item.title}/>
