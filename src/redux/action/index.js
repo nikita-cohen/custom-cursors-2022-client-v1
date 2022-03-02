@@ -45,6 +45,13 @@ export const getUserLastUsedCollection = (userCollection) => {
     }
 }
 
+export const getURL = (url) => {
+    return {
+        type : "GET/URL",
+        payload : url
+    }
+}
+
 export const saveUserId = (userId) => {
     return {
         type : "USER-ID/SAVE",

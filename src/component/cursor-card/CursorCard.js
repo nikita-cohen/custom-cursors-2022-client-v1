@@ -6,13 +6,15 @@ import {useEffect, useState} from "react";
 export function CursorCard(props) {
     const [isActive, setIsActive] = useState(props.cursorId === props.activeCursor);
     const [isAdded, setIsAdded] = useState(false);
+    const [urls , setUrls] = useState(props.urls);
 
     useEffect(() => {
         setIsActive(props.cursorId === props.activeCursor)
+        setUrls(props.urls)
         if (props.add !== "ADD") {
             setIsAdded(true);
         }
-    },[props.activeCursor, props.add])
+    },[props.activeCursor, props.add, props.urls])
 
     return (
         <div className="card-container">
@@ -29,7 +31,7 @@ export function CursorCard(props) {
                     <AddButton setAdd={setIsAdded} addCursor={props.addCursor} cursorId={props.cursorId} type={props.add}/>
                 </div>
                 <div className="add-button-card">
-                    <StopTryingButton setAdded={isAdded} ifAdd={props.add} cursorId={props.cursorId} cursor={props.cursor} pointer={props.pointer}
+                    <StopTryingButton urls={urls} setAdded={isAdded} ifAdd={props.add} cursorId={props.cursorId} cursor={props.cursor} pointer={props.pointer}
                                       getPath={props.getPath} type={isActive? "stop" : "try"}/>
                 </div>
             </div>

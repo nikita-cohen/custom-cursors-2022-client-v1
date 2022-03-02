@@ -6,7 +6,7 @@ export function StopTryingButton(props) {
     const [cursorUrl, setCursorUrl] = useState("")
     const [pointerUrl, setPointerUrl] = useState("")
     const [isCursor, setIsCursor] = useState("pointer")
-
+    const [isSubscribe, setIsSubscribe] = useState(true);
 
     const resizeDataURL = (data, wantedWidth, wantedHeight, type) => new Promise(function (resolve, reject) {
         let img = document.createElement('img');
@@ -23,21 +23,32 @@ export function StopTryingButton(props) {
 
         img.crossOrigin = "anonymous";
         img.src = data;
+
     });
 
     useEffect(() => {
+        setIsSubscribe(true);
         resizeDataURL(props.cursor, 48, 48, "cursor").then(r => {
-            setCursorUrl(r.data)
+            if (isSubscribe){
+                setCursorUrl(r.data)
+            }
+
         })
 
         resizeDataURL(props.pointer, 48, 48, "cursor").then(r => {
-            setPointerUrl(r.data)
+            if (isSubscribe){
+                setPointerUrl(r.data)
+            }
+
         })
 
         if (props.setAdded) {
             setIsCursor('default')
         }
-
+        return () => {
+            setIsSubscribe(false)
+            // break async loading
+        }
     }, [props.setAdded])
 
     function checkIfOnClickEnable () {
@@ -49,7 +60,7 @@ export function StopTryingButton(props) {
 
     const btnType = () => {
         if (props.type === "stop"){
-            return (<div onClick={() => props.getPath("", "", null, "stop")}  className="stop-trying-btn">
+            return (<div onClick={() => props.getPath(props.urls.urlCursor, props.urls.urlPointer, null, "stop")}  className="stop-trying-btn">
                        <p className="stop-trying-txt">Stop trying</p>
                    </div>)
         } else if (props.type === "try"){

@@ -4,13 +4,14 @@ import "./CollectionCursorsByNamePage.css"
 import {CursorCard} from "../../component/cursor-card/CursorCard";
 import {ToAllCollectionButton} from "../../component/to-all-collections-button/ToAllCollectionButton";
 import {Footer} from "../../component/footer/Footer";
-import {getCollectionCursorsAxios, getUserCollectionAxios} from "../../redux/action";
+import {getCollectionCursorsAxios, getURL, getUserCollectionAxios} from "../../redux/action";
 import connect from "react-redux/lib/connect/connect";
 import {useEffect, useState} from "react";
 import {DoNotHaveExtension} from "../../component/do-not-have-extension/DoNotHaveExtension";
 import {Rings} from "react-loader-spinner";
 import {usePromiseTracker} from "react-promise-tracker";
 import axios from "axios";
+import {useStore} from "react-redux/lib/hooks/useStore";
 
 
 export function CollectionCursorsByNamePage(props) {
@@ -19,7 +20,9 @@ export function CollectionCursorsByNamePage(props) {
     const [tryAddCursor, setTryAddCursor] = useState("none");
     const [tryAddCursorIfNoExtension, setTryAddCursorIfNoExtension] = useState("none");
     const [tryingId, setTryingId] = useState("");
+    const [cursorUrl, setCursorsUrl] = useState({});
     const { promiseInProgress } = usePromiseTracker();
+    const store = useStore();
 
     useEffect(() => {
         props.getCollectionCursorsAxios(props.match.params.id)
@@ -34,12 +37,25 @@ export function CollectionCursorsByNamePage(props) {
             }
         }, 2000)
 
+        setTimeout(() => {
+            window.postMessage({ type: "FROM_PAGE_CURSOR", text: "getCursor" }, "*");
+        }, 500)
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type && (event.data.type === "FROM_EXTENSION_CURSOR")){
+                setCursorsUrl(event.data.url);
+                props.getURL(event.data.url)
+            }
+        })
+
     },[props.userIdWelcome])
+
+
 
     useEffect(() => {
         return () => {
-            changeCursor("")
-            changePointer("")
+            changeCursor(store.getState().url.urlCursor)
+            changePointer(store.getState().url.urlPointer)
         };
     }, []);
 
@@ -126,12 +142,12 @@ export function CollectionCursorsByNamePage(props) {
 
 
     const showCursors = () => {
-        return props.cursors.map((cursor, index) => {
+        return props.cursors.map((cursor) => {
             let curCursor = props.userIdWelcome !== null && props.userIdWelcome !== undefined  ? props.userCollection?.find(item => item.id === cursor.id ? item : undefined) : false;
             if (curCursor) {
-                return <CursorCard key={index} activeCursor={tryingId} addCursor={addCursor} add="SUCCEED" getPath={getPath} cursorId={cursor.id} cursorName={cursor.name}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
+                return <CursorCard key={cursor.id} urls={cursorUrl} activeCursor={tryingId} addCursor={addCursor} add="SUCCEED" getPath={getPath} cursorId={cursor.id} cursorName={cursor.name}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
             } else {
-                return <CursorCard key={index} activeCursor={tryingId}  addCursor={addCursor} add="ADD" getPath={getPath} cursorId={cursor.id} cursorName={cursor.name}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
+                return <CursorCard key={cursor.id} urls={cursorUrl} activeCursor={tryingId}  addCursor={addCursor} add="ADD" getPath={getPath} cursorId={cursor.id} cursorName={cursor.name}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
             }
         })
     }
@@ -173,14 +189,16 @@ const mapStateToProp = (state) => {
     return {
         cursors : state.cursors,
         userCollection : state.userCollection,
-        userIdWelcome : state.userId
+        userIdWelcome : state.userId,
+        url : state.url
     };
 };
 
 const mapDispatchActions = () => {
     return {
         getCollectionCursorsAxios,
-        getUserCollectionAxios
+        getUserCollectionAxios,
+        getURL
     };
 };
 export const CollectionCursorsByNamePageConnected = connect(mapStateToProp, mapDispatchActions())(CollectionCursorsByNamePage);

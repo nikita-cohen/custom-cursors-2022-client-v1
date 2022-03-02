@@ -18,28 +18,46 @@ function CursorCollectionPage(props) {
     const {promiseInProgress} = usePromiseTracker();
     const [numberOfLastUsed, setNumberOfLastUsed] = useState(3);
     const [showContent, setShowContent] = useState(false);
+    const [isSubscribe, setIsSubscribe] = useState(true);
     const history = useHistory();
 
     useEffect(() => {
-        props.getAllCollection(numOfCollections)
-        props.getUserLastUsedCollectionAxios(props.userIdWelcome)
-        props.getUserCollectionAxios(props.userIdWelcome)
+        setIsSubscribe(true)
+        if (isSubscribe){
+            props.getAllCollection(numOfCollections)
+            props.getUserLastUsedCollectionAxios(props.userIdWelcome)
+            props.getUserCollectionAxios(props.userIdWelcome)
+        }
         if (window.innerWidth > 1178) {
-            setNumberOfLastUsed(4);
+            if (isSubscribe){
+                setNumberOfLastUsed(4);
+            }
         }
         window.addEventListener("resize", (event) => {
             if (window.innerWidth >= 1178) {
-                setNumberOfLastUsed(4)
+                if (isSubscribe){
+                    setNumberOfLastUsed(4)
+                }
             } else {
-                setNumberOfLastUsed(3);
+                if (isSubscribe) {
+                    setNumberOfLastUsed(3);
+                }
             }
         })
         setTimeout(() => {
+            if (isSubscribe){
                 setShowContent(true);
+            }
         }, 1000)
+
+
     }, [numOfCollections, props.userIdWelcome])
 
-
+    useEffect(() => {
+        return () => {
+            setIsSubscribe(false)
+        };
+    }, []);
 
     const showCards = () => {
         return props.collectionsCard.map((item, index) =>

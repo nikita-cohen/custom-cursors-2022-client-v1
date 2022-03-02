@@ -63,7 +63,14 @@ const userCollectionLastUsedReducer = (currentState = null, action) => {
     }
 };
 
-
+const urlReducer = (currentState = null, action) => {
+    switch (action.type) {
+        case "GET/URL" :
+            return action.payload;
+        default:
+            return currentState;
+    }
+};
 
 export default combineReducers({
     collection: collectionReducer,
@@ -72,6 +79,7 @@ export default combineReducers({
     searchPage : searchResultReducer,
     userCollection : userCollectionReducer,
     userId : userReducer,
-    lastUsed : userCollectionLastUsedReducer
+    lastUsed : userCollectionLastUsedReducer,
+    url : urlReducer
 });
 

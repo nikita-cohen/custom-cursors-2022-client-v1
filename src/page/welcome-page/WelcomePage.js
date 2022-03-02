@@ -7,12 +7,14 @@ import {CursorCard} from "../../component/cursor-card/CursorCard";
 import {GetMoreCursorsButton} from "../../component/get-more-cursors-button/GetMoreCursorsButton";
 import {Footer} from "../../component/footer/Footer";
 import {useEffect, useState} from "react";
-import {getCollectionCursorsAxios, getUserCollectionAxios} from "../../redux/action";
+import {getCollectionCursorsAxios, getURL, getUserCollectionAxios} from "../../redux/action";
 import connect from "react-redux/lib/connect/connect";
 import axios from "axios";
 import {DoNotHaveExtension} from "../../component/do-not-have-extension/DoNotHaveExtension";
 import {usePromiseTracker} from "react-promise-tracker";
 import {Rings} from "react-loader-spinner";
+import {useStore} from "react-redux/lib/hooks/useStore";
+
 
 
 export function WelcomePage(props) {
@@ -22,7 +24,10 @@ export function WelcomePage(props) {
     const [tryAddCursor, setTryAddCursor] = useState("none");
     const [tryAddCursorIfNoExtension, setTryAddCursorIfNoExtension] = useState("none");
     const { promiseInProgress } = usePromiseTracker();
+    const [cursorUrl, setCursorsUrl] = useState({});
     const [tryingId, setTryingId] = useState("");
+
+    const store = useStore();
 
     useEffect(() => {
         props.getCollectionCursorsAxios("61f0107fdf02797036b0807d")
@@ -37,13 +42,28 @@ export function WelcomePage(props) {
             }
         }, 2000)
 
+        setTimeout(() => {
+            window.postMessage({ type: "FROM_PAGE_CURSOR", text: "getCursor" }, "*");
+        }, 500)
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type && (event.data.type === "FROM_EXTENSION_CURSOR")){
+                console.log("onMount", event.data.url)
+                setCursorsUrl(event.data.url);
+                props.getURL(event.data.url)
+
+            }
+        })
+
     },[props.userIdWelcome]);
+
+
 
     useEffect(() => {
         return () => {
-            changeCursor("")
-            changePointer("")
-        };
+            changeCursor(store.getState().url.urlCursor)
+            changePointer(store.getState().url.urlPointer)
+        }
     }, []);
 
 
@@ -134,9 +154,9 @@ export function WelcomePage(props) {
         return props.cursors.map((cursor, index) => {
             let curCursor = props.userIdWelcome !== null && props.userIdWelcome !== undefined ?  props.userCollection?.find(item => item.id === cursor.id ? item : undefined) : false;
             if (curCursor) {
-                return <CursorCard key={index} activeCursor={tryingId} getPath={getPath} addCursor={addCursor} add="SUCCEED" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
+                return <CursorCard key={cursor.id} urls={cursorUrl} activeCursor={tryingId} getPath={getPath} addCursor={addCursor} add="SUCCEED" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
             } else {
-                return <CursorCard key={index} activeCursor={tryingId} getPath={getPath} addCursor={addCursor} add="ADD" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
+                return <CursorCard key={cursor.id} urls={cursorUrl} activeCursor={tryingId} getPath={getPath} addCursor={addCursor} add="ADD" cursorId={cursor.id} cursorName={cursor.name}  changeTrying={changeTryingState} trying={trying}  cursor={cursor.cursorPath} pointer={cursor.pointerPath} imageUrl={cursor.image}/>
             }
         })
     }
@@ -225,7 +245,8 @@ const mapStateToProp = (state) => {
     return {
         cursors : state.cursors,
         userCollection : state.userCollection,
-        userIdWelcome : state.userId
+        userIdWelcome : state.userId,
+        url : state.url
     };
 };
 
@@ -233,6 +254,7 @@ const mapDispatchActions = () => {
     return {
         getCollectionCursorsAxios,
         getUserCollectionAxios,
+        getURL
     };
 };
 export const WelcomePageConnected = connect(mapStateToProp, mapDispatchActions())(WelcomePage);
