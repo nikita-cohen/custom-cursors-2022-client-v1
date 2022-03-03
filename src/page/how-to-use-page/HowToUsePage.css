@@ -2,6 +2,105 @@
     display: flex;
 }
 
+.main-container-how-to-use-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.how-to-install-txt-container {
+    height: 31px;
+    width: 626px;
+    left: 205px;
+    top: 156px;
+    margin-top: 20px;
+}
+
+.first-step-txt-container {
+    height: 24px;
+    width: 252px;
+    left: 205px;
+    top: 197px;
+    margin-top: 10px;
+}
+
+.how-to-use-inner-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-box {
+    margin-top: 30px;
+    height: 233px;
+    width: 222px;
+    border-radius: 20px;
+    background: #F6FBFF;
+    border: 1px solid #C6CBFF;
+    z-index: 0;
+}
+
+.option-one-container {
+    height: 17px;
+    width: 304px;
+    left: 205px;
+    top: 225px;
+    margin-top: 4px;
+    display: flex;
+}
+
+.chrome-web-store-link {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 17px;
+    text-align: left;
+    text-decoration: none;
+    color: #197DE1;
+    margin-left: 4px;
+}
+
+.option-one {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    text-align: left;
+    color: black;
+    cursor: default;
+}
+
+.first-step-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: black;
+    cursor: default;
+
+}
+
+.how-to-to-install {
+    font-family: Inter, sans-serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31px;
+    text-align: left;
+    color: #0A0A0A;
+    cursor: default;
+}
+
+.first-container {
+
+}
+
 .txt-placeholder-how-to-use-page {
     font-family: 'Montserrat', sans-serif;
     font-size: 36px;
@@ -14,4 +113,616 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
+}
+
+.second-step-txt-container {
+    height: 24px;
+    width: 168px;
+    left: 205px;
+    top: 272px;
+    margin-top: 30px;
+}
+
+.second-step-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: black;
+    cursor: default;
+}
+
+.second-step-txt-explain-container {
+    height: 34px;
+    width: 557px;
+    left: 205px;
+    top: 300px;
+    margin-top: 4px;
+}
+
+.second-step-txt-explain {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    text-align: left;
+    cursor: default;
+}
+
+.second-step-img-container {
+    height: 280px;
+    width: 626px;
+    left: 205px;
+    top: 344px;
+    border-radius: 20px;
+    background: #C4C4C4;
+    margin-top: 10px;
+}
+
+.third-step-txt-container {
+    height: 24px;
+    width: 148px;
+    left: 205px;
+    top: 654px;
+    margin-top: 30px;
+}
+
+.third-step-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.footer-how-to-use {
+    margin-top: 50px;
+}
+
+.third-step-txt-explain-container {
+    height: 17px;
+    width: 626px;
+    left: 205px;
+    top: 682px;
+    margin-top: 4px;
+}
+
+.third-step-txt-explain {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.four-step-txt-container {
+    height: 24px;
+    width: 105px;
+    left: 205px;
+    top: 1019px;
+    margin-top: 30px;
+}
+
+.four-step-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.four-step-txt-explain-container {
+    height: 34px;
+    width: 626px;
+    left: 205px;
+    top: 1047px;
+    margin-top: 4px;
+}
+
+.four-step-txt-explain {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.line {
+    margin-top: 30px;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.how-to-use-extension-container {
+    height: 31px;
+    width: 626px;
+    left: 205px;
+    top: 1431px;
+    margin-top: 30px;
+}
+
+.how-to-use-extension-txt {
+    font-family: Inter, sans-serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31px;
+    color: #0A0A0A;
+    cursor: default;
+    text-align: left;
+}
+
+.how-to-use-extension-container-explanation {
+    height: 51px;
+    width: 626px;
+    left: 205px;
+    top: 1470px;
+    margin-top: 8px;
+}
+
+.how-to-use-extension-txt-explanation {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.first-step-extension-txt-container {
+    height: 24px;
+    width: 239px;
+    left: 205px;
+    top: 1551px;
+    margin-top: 30px;
+}
+
+.first-step-extension-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.first-step-extension-explain-txt-container {
+    height: 34px;
+    width: 626px;
+    left: 205px;
+    top: 1579px;
+    margin-top: 4px;
+}
+
+.first-step-extension-explain-txt {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.frame63 {
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.second-step-extension-txt-container {
+    height: 24px;
+    width: 200px;
+    left: 205px;
+    top: 1953px;
+    margin-top: 30px;
+}
+
+.second-step-extension-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.second-step-extension-explain-txt-container {
+    height: 85px;
+    width: 626px;
+    left: 205px;
+    top: 1981px;
+    margin-top: 4px;
+}
+
+.second-step-extension-explain-txt {
+    font-family: Inter,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.third-step-extension-txt-container {
+    height: 24px;
+    width: 199px;
+    left: 205px;
+    top: 2386px;
+    margin-top: 30px;
+}
+
+.third-step-extension-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.third-step-extension-explain-txt-container {
+    height: 51px;
+    width: 626px;
+    left: 205px;
+    top: 2414px;
+    margin-top: 4px;
+}
+
+.third-step-extension-explain-txt {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.four-step-extension-txt-container {
+    height: 24px;
+    width: 269px;
+    left: 205px;
+    top: 3063px;
+    margin-top: 30px;
+}
+
+.four-step-extension-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.four-step-extension-explain-txt-container {
+    height: 17px;
+    width: 626px;
+    left: 205px;
+    top: 3091px;
+    margin-top: 4px;
+}
+
+.four-step-extension-explain-txt {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.header-step-site-txt-container {
+    height: 31px;
+    width: 626px;
+    left: 205px;
+    top: 3736px;
+    margin-top: 30px;
+}
+
+.header-step-site-txt {
+    font-family: Inter, sans-serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31px;
+    color: #0A0A0A;
+    cursor: default;
+    text-align: left;
+}
+
+.first-step-site-txt-container {
+    height: 24px;
+    width: 392px;
+    left: 205px;
+    top: 3785px;
+    margin-top: 18px;
+}
+
+.first-step-site-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.first-step-site-explain-txt-container {
+    height: 34px;
+    width: 648px;
+    left: 205px;
+    top: 3813px;
+    margin-top: 4px;
+}
+
+.first-step-site-explain-txt {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.second-step-site-txt-container {
+    height: 24px;
+    width: 242px;
+    left: 205px;
+}
+
+.second-step-site-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.second-step-site-explain-txt-container {
+    height: 17px;
+    width: 648px;
+    left: 205px;
+    top: 4225px;
+    margin-top: 4px;
+}
+
+.second-step-site-explain-txt {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.third-step-site-txt-container {
+    height: 24px;
+    width: 242px;
+    left: 205px;
+    top: 4592px;
+    margin-top: 40px;
+}
+
+.third-step-site-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.third-step-site-explain-txt-container {
+    height: 17px;
+    width: 648px;
+    left: 205px;
+    top: 4620px;
+    margin-top: 4px;
+}
+
+.third-step-site-explain-txt {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.four-step-site-txt-container {
+    height: 24px;
+    width: 615px;
+    left: 205px;
+    top: 4987px;
+    margin-top: 40px;
+}
+
+.four-step-site-txt {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+.four-step-site-explain-txt-container {
+    height: 17px;
+    width: 648px;
+    left: 205px;
+    top: 5015px;
+    margin-top: 4px;
+}
+
+.four-step-site-explain-txt {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: black;
+    cursor: default;
+    text-align: left;
+}
+
+img {
+    display: block;
+}
+
+.progressbar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    width: 0;
+
+
+}
+.progressbar li {
+    list-style-type: none;
+    margin-bottom: 40px;
+    font-size: 12px;
+    position: relative;
+    color: black;
+}
+
+.progressbar li:before {
+    width: 28px;
+    height: 28px;
+    content: "";
+    background: #D8EBFF;
+    line-height: 30px;
+    margin: 0 auto 0 auto;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid #9ACBFF
+}
+.progressbar li:after {
+    width: 2px;
+    height: 50px;
+    content: '';
+    position: absolute;
+    background: #9ACBFF;
+    top: -40px;
+    left: 15px;
+    z-index: -1;
+}
+.progressbar li:first-child:after {
+    content: none;
+}
+.progressbar li.active {
+
+}
+
+.progressbar li.active:before {
+    border: 2px solid #003162;
+    background: #197DE1;
+    transform: translate(0, 0);
+}
+
+.progressbar li.active + li:after {
+
+}
+
+.box-container {
+    display: flex;
+}
+
+.text-container {
+    margin-left: 40px;
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column;
+}
+
+.how-to-install {
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    color: #373737;
+    text-align: left;
+    height: 36px;
+    width: 152px;
+    left: 925px;
+    top: 180px;
+}
+
+.how-to-use-extension {
+    height: 36px;
+    width: 152px;
+    left: 925px;
+    top: 180px;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    cursor: default;
+    text-align: left;
+    color: #373737;
+    margin-top: 37px;
+}
+
+.how-to-add-cursor {
+    height: 36px;
+    width: 152px;
+    left: 925px;
+    top: 249px;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    cursor: default;
+    text-align: left;
+    color: #373737;
+    margin-top: 37px;
 }
