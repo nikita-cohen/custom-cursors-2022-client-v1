@@ -20,6 +20,14 @@ export function CustomSearchInput(props) {
         })
     },[value])
 
+    useEffect(() => {
+        return () => {
+            setDisplay("none")
+            setValue("")
+
+        };
+    }, [])
+
     const onChangeValue = (event) => {
         setValue(event.target.value);
     }

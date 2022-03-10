@@ -48,7 +48,7 @@ export function CollectionCursorsByNamePage(props) {
             }
         })
 
-    },[props.userIdWelcome])
+    },[props.userIdWelcome, props.match.params.id])
 
 
 

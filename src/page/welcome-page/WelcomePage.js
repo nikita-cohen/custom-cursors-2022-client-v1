@@ -197,15 +197,7 @@ export function WelcomePage(props) {
                                 </div>
                             </div>
                             <div className="gif-container">
-                                <div className="gif-txt">
-                                    Гифка демонстрирующая как
-                                </div>
-                                <div className="gif-txt">
-                                    курсоры добавляются в
-                                </div>
-                                <div className="gif-txt">
-                                    расширение
-                                </div>
+                                <img className={"gif-image"} src={process.env.PUBLIC_URL + "/gifWelcome.gif"} alt={"gif"}/>
                             </div>
                         </div>
                     </InnerLayout>

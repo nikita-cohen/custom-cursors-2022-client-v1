@@ -27,6 +27,11 @@
     margin-top: 10px;
 }
 
+.inner-inner-block {
+    display: flex;
+    flex-direction: column;
+}
+
 .how-to-use-inner-container {
     display: flex;
     justify-content: space-between;
@@ -683,15 +688,20 @@ img {
     font-family: Inter, sans-serif;
     font-size: 15px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 18px;
-    color: black;
+    color: #373737;
     text-align: left;
     height: 36px;
     width: 152px;
     left: 925px;
     top: 180px;
     text-decoration: none;
+}
+
+.how-to-install.active {
+    font-weight: 600;
+    color: black;
 }
 
 .how-to-use-extension {
@@ -711,6 +721,11 @@ img {
     text-decoration: none;
 }
 
+.how-to-use-extension.active {
+    font-weight: 600;
+    color: black;
+}
+
 .how-to-add-cursor {
     height: 36px;
     width: 152px;
@@ -726,6 +741,11 @@ img {
     color: #373737;
     margin-top: 37px;
     text-decoration: none;
+}
+
+.how-to-add-cursor.active {
+    font-weight: 600;
+    color: black;
 }
 
 .position-fixed {
