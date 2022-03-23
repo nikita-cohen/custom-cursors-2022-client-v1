@@ -14,6 +14,7 @@ import {HowToUsePage} from "./page/how-to-use-page/HowToUsePage";
 import {PoolPage} from "./page/pool-page/PoolPage";
 import {ThankYouPage} from "./page/thank-you-page/ThankYouPage";
 import {ReinstallPage} from "./page/reinstall-page/ReinstallPage";
+import {Feedback} from "./page/feedback/Feedback";
 import {useEffect} from "react";
 import { saveUserId} from "./redux/action";
 import connect from "react-redux/lib/connect/connect";
@@ -50,6 +51,7 @@ function App(props) {
                     <Route path={"/pool"} exact component={PoolPage}/>
                     <Route path={"/pool-thank-you"} exact component={ThankYouPage}/>
                     <Route path={"/pool-reinstall"} exact component={ReinstallPage}/>
+                    <Route path={"/feedback"} exact component={Feedback}/>
                 </Switch>
         </div>
     )
