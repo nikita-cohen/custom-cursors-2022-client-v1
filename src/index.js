@@ -8,7 +8,6 @@ import reducer from './redux/reducer';
 import thunk from "redux-thunk";
 import {AppConnected} from "./App";
 import {composeWithDevTools} from "redux-devtools-extension";
-import { createBrowserHistory } from "history";
 import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
